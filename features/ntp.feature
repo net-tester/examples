@@ -1,4 +1,3 @@
-@wip
 Feature: NTPによる時刻同期
 
   Fahey Inc 社の開発者として、
