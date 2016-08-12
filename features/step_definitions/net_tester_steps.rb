@@ -4,8 +4,6 @@ Given(/^DPID が (\S+) の NetTester 物理スイッチ$/) do |dpid|
 end
 
 Given(/^NetTester をネットワークデバイス "([^"]*)" で起動$/) do |device|
-  cd('.') do
-    NetTester.run(@dpid)
-    NetTester.connect_switch(device: device, port_number: 1)
-  end
+  NetTester.run(@dpid)
+  NetTester.connect_switch(device: device, port_number: 1)
 end

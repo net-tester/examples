@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/trema/phut.git
-  revision: 66cae8827415d6a6c00d6c028b6a3daeaa57d991
+  revision: bfa6335fa4bd2cc75636e4cff5408d521630f10a
   branch: develop
   specs:
     phut (0.7.7)
@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/trema/trema.git
-  revision: e1b9a6ce6b9f1c3f276316dae5b1f2a0bc8a17f2
+  revision: 265dc3762cdc1dc73c3f00a27fc8a04197f5f028
   branch: develop
   specs:
     trema (0.10.1)
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/yasuhito/net_tester.git
-  revision: 1b09b994a17ec61ecbb07a6548e67c426509fb4c
+  revision: 32b4e1e3eb71b748797e857797c199b2c04d409e
   branch: develop
   specs:
     net_tester (0.2.0)
@@ -33,7 +33,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.7)
+    activesupport (4.2.7.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -67,7 +67,7 @@ GEM
     diff-lcs (1.2.5)
     faker (1.6.6)
       i18n (~> 0.5)
-    ffi (1.9.10)
+    ffi (1.9.14)
     gherkin (4.0.0)
     gli (2.13.4)
     i18n (0.7.0)
@@ -88,10 +88,10 @@ GEM
       slop (~> 3.4)
     rainbow (2.1.0)
     rake (11.2.2)
-    rspec-expectations (3.4.0)
+    rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-support (3.4.1)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     rubocop (0.40.0)
       parser (>= 2.3.1.0, < 3.0)
       powerpack (~> 0.1)

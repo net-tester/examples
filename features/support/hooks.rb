@@ -18,6 +18,6 @@ After do
     Phut.socket_dir = './sockets'
 
     Phut::Netns.destroy_all
-    NetTester::Command.kill
+    NetTester.kill
   end
 end
