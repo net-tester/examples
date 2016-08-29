@@ -5,5 +5,5 @@ end
 
 Given(/^NetTester をネットワークデバイス "([^"]*)" で起動$/) do |device|
   NetTester.run(@dpid)
-  NetTester.connect_switch(device: device, port_number: 1)
+  NetTester.connect_device_to_virtual_port(device: device, port_number: 1)
 end
