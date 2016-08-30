@@ -20,11 +20,6 @@ end
 
 After do
   Dir.chdir(Aruba.config.working_directory) do
-    Phut.log_dir = './log'
-    Phut.pid_dir = './pids'
-    Phut.socket_dir = './sockets'
-
-    Phut::Netns.destroy_all
     NetTester.kill
   end
 end
