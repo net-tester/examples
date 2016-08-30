@@ -1,4 +1,3 @@
-# coding: utf-8
 # frozen_string_literal: true
 
 Before do
@@ -10,16 +9,17 @@ Before do
     Phut.log_dir = './log'
     Phut.pid_dir = './pids'
     Phut.socket_dir = './sockets'
-  end
 
-  steps %(
-    Given DPID が 0x123 の NetTester 物理スイッチ
-    And NetTester をネットワークデバイス "eth1" で起動
-  )
+    NetTester.run(network_device: 'eth1', physical_switch_dpid: 0x123)
+  end
 end
 
 After do
   Dir.chdir(Aruba.config.working_directory) do
+    Phut.log_dir = './log'
+    Phut.pid_dir = './pids'
+    Phut.socket_dir = './sockets'
+
     NetTester.kill
   end
 end

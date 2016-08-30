@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/yasuhito/net_tester.git
-  revision: 703fe956da51b34ff93b96cd2afe84cec13011af
+  revision: f2cc3ae45e16d5f91843d005fd374375a8fc7d9c
   branch: develop
   specs:
     net_tester (0.2.0)
