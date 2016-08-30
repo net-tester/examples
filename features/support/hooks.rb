@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
 Before do
-  Dir.chdir(Aruba.config.working_directory) do
-    NetTester.log_dir = './log'
-    NetTester.pid_dir = './pids'
-    NetTester.socket_dir = './sockets'
+  NetTester.log_dir = File.join(Aruba.config.working_directory, 'log')
+  NetTester.pid_dir = File.join(Aruba.config.working_directory, 'pids')
+  NetTester.socket_dir = File.join(Aruba.config.working_directory, 'sockets')
 
-    NetTester.run(network_device: 'eth1', physical_switch_dpid: 0x123)
-  end
+  NetTester.run(network_device: 'eth1', physical_switch_dpid: 0x123)
 end
 
 After do
-  Dir.chdir(Aruba.config.working_directory) do
-    NetTester.kill
-  end
+  NetTester.kill
 end
