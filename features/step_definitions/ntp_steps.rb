@@ -1,6 +1,6 @@
 # coding: utf-8
 Given(/^NTP クライアントとなる開発者 PC$/) do
-  @ntp_client = build(:ntp_client)
+  @ntp_client = Netns.new(attributes_for(:ntp_client))
 end
 
 When(/^インターネット上の NTP サーバで開発者 PC の時刻を同期$/) do

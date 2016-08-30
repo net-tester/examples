@@ -14,7 +14,5 @@ FactoryGirl.define do
   factory :ntp_client, class: NetTester::Netns do
     name 'ntp_client'
     internal_network_host
-
-    initialize_with { new(attributes) }
   end
 end
