@@ -8,6 +8,10 @@ Before do
   NetTester.run(network_device: 'eth1', physical_switch_dpid: 0x123)
 end
 
+After('@nc') do
+  system 'sudo killall nc 2>/dev/null'
+end
+
 After do
   NetTester.kill
 end
