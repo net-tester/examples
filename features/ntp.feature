@@ -1,4 +1,4 @@
-Feature: NTP による時刻同期
+Feature: NTP で時刻を同期
 
   Fahey Inc 社の開発者として、
   インターネット上の NTP サーバを使って自分の PC の時刻を同期したい
