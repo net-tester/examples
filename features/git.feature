@@ -5,7 +5,7 @@ Feature: 社内 Git サービス
   なぜならソースコードを社内 Git サーバで管理しているから
 
   @nc
-  Scenario: Git クライアントによる Git リポジトリへのアクセス
+  Scenario: 社内 Git サービスへアクセス
     Given Fahey Inc 社 の Git リポジトリサーバ
     And Git クライアントとなる開発者 PC
     When 開発者 PC から社内 Git リポジトリへアクセス
