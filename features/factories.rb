@@ -16,8 +16,6 @@ FactoryGirl.define do
     physical_port_number 2
   end
 
-  # Git server and client
-
   factory :git_client, class: Netns do
     internal_network_host
 
@@ -34,5 +32,14 @@ FactoryGirl.define do
     ip_address '10.10.10.1'
     virtual_port_number 3
     physical_port_number 3
+  end
+
+  factory :browser_pc, class: Netns do
+    internal_network_host
+
+    name 'browser_pc'
+    ip_address '10.10.10.3'
+    virtual_port_number 2
+    physical_port_number 2
   end
 end
