@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/trema/trema.git
-  revision: 265dc3762cdc1dc73c3f00a27fc8a04197f5f028
+  revision: 8d8858dff055e33efc68c3038119924a810c02c4
   branch: develop
   specs:
     trema (0.10.1)
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/yasuhito/net_tester.git
-  revision: 232a21ee39da7ac9dff843e05262939a5f6565ff
+  revision: 30d9e66bf2e6333571229633a1ee99e01c5629ae
   branch: develop
   specs:
     net_tester (0.2.0)
