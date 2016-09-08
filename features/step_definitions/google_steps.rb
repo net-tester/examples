@@ -5,7 +5,7 @@ end
 
 When(/^ブラウザで Google のページを開く$/) do
   cd('.') do
-    @browser_pc.exec 'curl -L https://google.com/ > log/google.log'
+    @browser_pc.exec 'curl -L https://www.google.com/ | iconv -f SHIFT-JIS -t UTF8 > log/google.log'
   end
 end
 
