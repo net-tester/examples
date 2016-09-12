@@ -10,7 +10,7 @@ Given(/^Google のページを起動するWebサーバ$/) do
     system "sudo echo '10.10.10.4 google.com' > /etc/netns/browser_pc/hosts"
     #system "ip netns exec google_pc echo '<title>Google</title>' | ip netns exec google_pc nc -l -p 443 > log/nc.log &"
     system "yes '' | openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout server.key -out server.crt -days 30"
-    system "ip netns exec google_pc echo '<title>Google</title>' | ip netns exec google_pc openssl s_server -cert server.crt -key server.key -accept 443 > log/nc.log &"
+    system "ip netns exec google_pc echo '<title>Google</title>' | ip netns exec google_pc openssl s_server -cert server.crt -key server.key -accept 443 > log/s_server.log &"
   end
 end
 
