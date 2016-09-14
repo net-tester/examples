@@ -42,4 +42,13 @@ FactoryGirl.define do
     virtual_port_number 2
     physical_port_number 2
   end
+
+  factory :google_pc, class: Netns do
+    internal_network_host
+
+    name 'google_pc'
+    ip_address '10.10.10.4'
+    virtual_port_number 3
+    physical_port_number 3
+  end
 end
