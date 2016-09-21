@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/net-tester/net-tester.git
-  revision: 2a4ba23288d6b9fcb4d3a684f66073683d1d78ec
+  revision: 8ffd2a2242050adae7c41594454829c2fa626fa7
   branch: develop
   specs:
     net_tester (0.2.0)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/trema/phut.git
-  revision: f43a8c4e94eeb18c83e1535e81adbc860df12b75
+  revision: 4a7502f8de2d06356b5309dbf9da56b653c69480
   branch: develop
   specs:
     phut (0.7.7)
