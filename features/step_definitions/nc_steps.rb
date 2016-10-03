@@ -1,6 +1,6 @@
 When(/^ヨーヨーダイン 社からテスト環境サーバへsshを実行$/) do
-  run "sudo ip netns exec #{@test_server.name} bash -c 'echo OK | nc -l 22 &'"
-
+  Thread.start {@test_server.exec "bash -c 'echo OK | nc -l 22'"}
+  sleep(3)
   cd('.') do
     @internal_pc.exec "nc #{@test_server.ip_address} 22 > log/nc_22.log"
   end
