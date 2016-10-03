@@ -1,6 +1,6 @@
 When(/^ヨーヨーダイン 社から資産管理サーバへsshを実行$/) do
-  run "sudo ip netns exec #{@asset_server.name} bash -c 'echo OK | nc -l 22 &'"
-
+  Thread.start {@asset_server.exec "bash -c 'echo OK | nc -l 22'"}
+  sleep(3)
   cd('.') do
     @internal_pc.exec "nc #{@asset_server.ip_address} 22 > log/nc_22.log"
   end
