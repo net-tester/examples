@@ -1,11 +1,11 @@
-When(/^ヨーヨーダイン 社から資産管理サーバへsshを実行$/) do
-  Thread.start {@asset_server.exec "bash -c 'echo OK | nc -l 22'"}
-  sleep(3)
+When(/^ヨーヨーダイン社からヨーヨーダイン社内部の資産管理サーバにsshでログイン$/) do  
   cd('.') do
-    @internal_pc.exec "nc #{@asset_server.ip_address} 22 > log/nc_22.log"
+    @asset_server.exec "ssh-keygen -f ./ssh-key -t rsa -b 2048 -N ''"
+    @asset_server.exec "/usr/sbin/sshd -o AuthorizedKeysFile=$PWD/ssh-key.pub"
+    @internal_pc.exec "bash -c 'ssh -t -t #{@asset_server.ip_address} -i ./ssh-key -o StrictHostKeyChecking=no ip a ' > log/ssh.log"
   end
 end
 
-Then(/^ssh成功$/) do
-  step %(the file "log/nc_22.log" should contain "OK")
+Then(/^ヨーヨーダイン社からヨーヨーダイン社内部の資産管理サーバにsshでログイン成功$/) do
+  step %(the file "log/ssh.log" should contain "#{@asset_server.ip_address}")
 end
