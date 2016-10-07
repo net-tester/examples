@@ -9,3 +9,7 @@ end
 Given(/^ヨーヨーダイン社のDMZ内のDNSサーバ$/) do
   @dns_server = Netns.new(attributes_for(:dns_server))
 end
+
+Given(/^Internet上のPC$/) do
+  @internet_pc = Netns.new(attributes_for(:internet_pc))
+end
