@@ -6,3 +6,5 @@
 * [pingで社内からDMZ内のDNSサーバへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_dmz_dns_from_internal_network.feature)
 * [pingで社内からDMZへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_dmz_from_internal_network.feature)
 * [pingでDMZから社内へ疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_internal_network_from_dmz.feature)
+* [sshで社内から資産管理サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_asset_management_server_from_internal_network.feature)
+* [sshで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_test_environment_server_from_internal_network.feature)
