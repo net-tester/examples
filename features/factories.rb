@@ -36,6 +36,16 @@ FactoryGirl.define do
     mac_address {'00:00:00:00:00:04'}
   end
 
+  factory :test_server, class: Netns do
+    internal_network_host
+
+    name 'test_server'
+    ip_address '10.10.10.2'
+    virtual_port_number 4
+    physical_port_number 4
+    mac_address {'00:00:00:00:00:05'}
+  end
+
   factory :browser_pc, class: Netns do
     internal_network_host
 
@@ -83,6 +93,7 @@ FactoryGirl.define do
   factory :dns_server, class: NetTester::Netns do
     name 'dns_server'
     dmz_network
+
     ip_address '10.10.0.10'
     virtual_port_number 5
     physical_port_number 5
