@@ -74,6 +74,7 @@ FactoryGirl.define do
   factory :dns_server, class: NetTester::Netns do
     name 'dns_server'
     dmz_network
+
     ip_address '10.10.0.10'
     virtual_port_number 5
     physical_port_number 5
