@@ -75,4 +75,19 @@ FactoryGirl.define do
     physical_port_number 8
     mac_address {'00:00:00:00:00:07'}
   end
+
+  trait :dmz_network do
+    netmask '255.255.255.0'
+    gateway '10.10.0.1'
+  end
+
+  factory :dns_server, class: NetTester::Netns do
+    name 'dns_server'
+    dmz_network
+
+    ip_address '10.10.0.10'
+    virtual_port_number 5
+    physical_port_number 5
+    mac_address {'00:00:00:00:00:08'}
+  end
 end
