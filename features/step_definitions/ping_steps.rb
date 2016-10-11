@@ -16,7 +16,7 @@ When(/^DMZにヨーヨーダイン社のPCからpingで疎通確認$/) do
   end
 end
 
-When(/^RouterにInternet上のPCからpingで疎通確認$/) do
+When(/^ヨーヨーダイン社のRouterにInternet上のPCからpingで疎通確認$/) do
   cd('.') do
     @internet_pc.exec 'ping 203.0.113.1 -c 4 > log/ping.log'
   end
