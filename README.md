@@ -9,3 +9,4 @@
 * [sshで社内から資産管理サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_asset_management_server_from_internal_network.feature)
 * [sshで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_test_environment_server_from_internal_network.feature)
 * [pingでインターネットからルータへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_router_from_internet.feature)
+* [pingでインターネットからファイアウォールへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_firewall_from_internet.feature)
