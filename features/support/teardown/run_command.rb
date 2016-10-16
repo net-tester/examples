@@ -18,7 +18,7 @@ class RunCommands2Hosts
   end
 
   def run_command_for_all_hosts(host_list_file, command_list_file)
-    @host_list = YAML.load_file(File.expand_path(File.dirname(__FILE__) + "/user/#{host_list_file}"))
+    @host_list = YAML.load_file(File.expand_path(__dir__ + "/user/#{host_list_file}"))
 
     @host_list.each do |host_param|
       run_command_for_host host_param, command_list_file
@@ -42,13 +42,13 @@ class RunCommands2Hosts
   private
 
   def load_prompt_regexp(host_type)
-    prompt_file = File.expand_path(File.dirname(__FILE__) + "/system/#{host_type}_prompt.yml")
+    prompt_file = File.expand_path(__dir__ + "/system/#{host_type}_prompt.yml")
     File.file?(prompt_file) ? YAML.load_file(prompt_file) : nil
   end
 
   def run_command(reader, writer, pid, host_param, command_list_file)
     writer.sync = true
-    cmd_list = YAML.load_file(File.expand_path(File.dirname(__FILE__) + "/user/#{command_list_file}"))
+    cmd_list = YAML.load_file(File.expand_path(__dir__ + "/user/#{command_list_file}"))
     begin
       until reader.eof?
         reader.expect(expect_regexp, @timeout) do |match|
