@@ -1,0 +1,7 @@
+:password : '^Password\s*:'
+:username : '^Username\s*:'
+:sub1 : '\][:\?]'
+:sub2 : '\[confirm\]'
+:yn : '\[yes\/no\]:'
+:command1 : '^[\w\-]+>'
+:command2 : '^[\w\-]+(:?\(config\))?\#'
