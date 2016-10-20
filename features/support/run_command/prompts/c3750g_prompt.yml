@@ -5,3 +5,5 @@
 :yn : '\[yes\/no\]:'
 :command1 : '^[\w\-]+>'
 :command2 : '^[\w\-]+(:?\(config\))?\#'
+:enable_password : 'SAME_AS_LOGIN_PASSWORD'
+:enable_command : 'enable'

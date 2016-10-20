@@ -1,0 +1,13 @@
+- :hostname : 'fw1'
+  :type : 'ssg'
+  :ipaddr : '192.168.20.161'
+  :protocol : 'telnet'
+  :username : "<%= ENV['FW_USER'] %>"
+  :password : "<%= ENV['FW_PASS'] %>"
+- :hostname : 'fw2'
+  :type : 'ssg'
+  :ipaddr : '192.168.20.162'
+  :protocol : 'telnet'
+  :username : "<%= ENV['FW_USER'] %>"
+  :password : "<%= ENV['FW_PASS'] %>"
+

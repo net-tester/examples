@@ -1,0 +1,14 @@
+- :hostname : 'ofs1'
+  :type : 'pica8'
+  :ipaddr : '192.168.20.155'
+  :protocol : 'ssh'
+  :username : "<%= ENV['OFS1_USER'] %>"
+  :password : "<%= ENV['OFS_PASS'] %>"
+  :enable : "<%= ENV['OFS_PASS'] %>"
+- :hostname : 'ofs2'
+  :type : 'pica8'
+  :ipaddr : '192.168.20.156'
+  :protocol : 'ssh'
+  :username : "<%= ENV['OFS2_USER'] %>"
+  :password : "<%= ENV['OFS_PASS'] %>"
+  :enable : "<%= ENV['OFS_PASS'] %>"

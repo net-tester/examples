@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/object/try'
-require File.expand_path(__dir__ + '/teardown/run_command.rb')
+require File.expand_path(__dir__ + '/run_command.rb')
 
 Before do
   NetTester.log_dir = File.join(Aruba.config.working_directory, 'log')

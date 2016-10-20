@@ -1,7 +1,0 @@
-- :hostname : 'fw1'
-  :type : 'ssg'
-  :ipaddr : '*.*.*.*'
-  :protocol : 'telnet'
-  :username : '***'
-  :password : '***'
-  :enable : ''
