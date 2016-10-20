@@ -5,3 +5,5 @@
 :yn : '\[y\]\/n'
 :command1 : 'DO_NOT_USE_FOR_SSG'
 :command2 : '^[\w\-]+:[\w\-]+\([A-Z]+\)'
+:enable_password : 'DO_NOT_USE_FOR_SSG'
+:enable_command: '' # none

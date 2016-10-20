@@ -1,0 +1,9 @@
+:password : '^.+password\s*:'
+:username : 'DO_NOT_USE_FOR_PICA8'
+:sub1 : 'DO_NOT_USE_FOR_PICA8'
+:sub2 : 'DO_NOT_USE_FOR_PICA8'
+:yn : 'DO_NOT_USE_FOR_PICA8'
+:command1 : '^[\w]+@[\w\-]+\$' # username@host-name$
+:command2 : '^(:?root|admin)@[\w\-]+\$'
+:enable_password : '^Password:\s*'
+:enable_command : 'su'

@@ -4,6 +4,7 @@
 require 'pty'
 require 'expect'
 require 'yaml'
+require 'erb'
 
 class RunCommands2Hosts
   def initialize
@@ -17,8 +18,20 @@ class RunCommands2Hosts
     $expect_verbose = true
   end
 
+  def prompts_dir
+    File.expand_path(__dir__ + '/run_command/prompts')
+  end
+
+  def hosts_dir
+    File.expand_path(__dir__ + '/run_command/hosts')
+  end
+
+  def commands_dir
+    File.expand_path(__dir__ + '/run_command/commands')
+  end
+
   def run_command_for_all_hosts(host_list_file, command_list_file)
-    @host_list = YAML.load_file(File.expand_path(__dir__ + "/user/#{host_list_file}"))
+    @host_list = YAML.load_file("#{hosts_dir}/#{host_list_file}")
 
     @host_list.each do |host_param|
       run_command_for_host host_param, command_list_file
@@ -42,13 +55,13 @@ class RunCommands2Hosts
   private
 
   def load_prompt_regexp(host_type)
-    prompt_file = File.expand_path(__dir__ + "/system/#{host_type}_prompt.yml")
+    prompt_file = "#{prompts_dir}/#{host_type}_prompt.yml"
     File.file?(prompt_file) ? YAML.load_file(prompt_file) : nil
   end
 
   def run_command(reader, writer, pid, host_param, command_list_file)
     writer.sync = true
-    cmd_list = YAML.load_file(File.expand_path(__dir__ + "/user/#{command_list_file}"))
+    cmd_list = YAML.load_file("#{commands_dir}/#{command_list_file}")
     begin
       until reader.eof?
         reader.expect(expect_regexp, @timeout) do |match|
@@ -62,6 +75,16 @@ class RunCommands2Hosts
     end
   end
 
+  def embed_user_name(base_str, binding)
+    uname_erb = ERB.new(base_str)
+    uname_erb.result(binding)
+  end
+
+  def embed_password(base_str, binding)
+    passwd_erb = ERB.new(base_str)
+    passwd_erb.result(binding)
+  end
+
   def make_spawn_command(host_param)
     case host_param[:protocol]
     when /^telnet$/i
@@ -70,7 +93,8 @@ class RunCommands2Hosts
       ['ssh',
        '-o StrictHostKeyChecking=no',
        '-o KexAlgorithms=+diffie-hellman-group1-sha1',
-       '-l', host_param[:username], host_param[:ipaddr]].join(' ')
+       '-l', embed_user_name(host_param[:username], binding),
+       host_param[:ipaddr]].join(' ')
     else
       puts "unknown protocol #{host_param[:protocol]}"
       nil
@@ -79,7 +103,8 @@ class RunCommands2Hosts
 
   def expect_regexp
     %r!
-      ( #{@prompt[:password]} | #{@prompt[:username]}
+      ( #{@prompt[:password]} | #{@prompt[:enable_password]}
+      | #{@prompt[:username]}
       | #{@prompt[:command1]} | #{@prompt[:command2]}
       | #{@prompt[:sub1]} | #{@prompt[:sub2]}
       | #{@prompt[:yn]}
@@ -89,20 +114,22 @@ class RunCommands2Hosts
 
   def exec_each_prompt(prompt, writer, host_param, cmd_list)
     case prompt
-    when /#{@prompt[:password]}/
-      if @enable_mode
-        writer.puts host_param[:enable]
-      else
-        writer.puts host_param[:password]
-      end
+    when /#{@prompt[:password]}/, /#{@prompt[:enable_password]}/
+      passwd_str = @enable_mode ? host_param[:enable] : host_param[:password]
+      writer.puts embed_password(passwd_str, binding)
     when /#{@prompt[:username]}/
-      writer.puts host_param[:username]
-    when /#{@prompt[:command1]}/
-      writer.puts 'enable'
-      @enable_mode = true
+      writer.puts embed_user_name(host_param[:username], binding)
     when /#{@prompt[:command2]}/
       if cmd_list.length > 0
         writer.puts cmd_list.shift
+      else
+        puts "\n### break\n"
+        writer.puts 'exit'
+      end
+    when /#{@prompt[:command1]}/
+      if cmd_list.length > 0
+        writer.puts @prompt[:enable_command]
+        @enable_mode = true
       else
         puts "\n### break\n"
         writer.puts 'exit'
@@ -117,11 +144,3 @@ class RunCommands2Hosts
     end
   end
 end
-
-# options
-#if ARGV.size != 2 || !File.file?(ARGV[0]) || !File.file?(ARGV[1])
-#  puts "#{$0} <hostlist.yml> <cmdlist.yml>"
-#  exit
-#end
-#cmd2hosts = RunCommands2Hosts.new
-#cmd2hosts.run_command_for_all_hosts(ARGV[0], ARGV[1])

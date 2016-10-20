@@ -1,0 +1,14 @@
+- :hostname : 'l2sw1'
+  :type : 'c3750g'
+  :ipaddr : '192.168.20.150'
+  :protocol : 'ssh'
+  :username : "<%= ENV['L2SW_USER'] %>"
+  :password : "<%= ENV['L2SW_PASS'] %>"
+  :enable : "<%= ENV['L2SW_PASS'] %>"
+- :hostname : 'l2sw2'
+  :type : 'c3750g'
+  :ipaddr : '192.168.20.151'
+  :protocol : 'ssh'
+  :username : "<%= ENV['L2SW_USER'] %>"
+  :password : "<%= ENV['L2SW_PASS'] %>"
+  :enable : "<%= ENV['L2SW_PASS'] %>"
