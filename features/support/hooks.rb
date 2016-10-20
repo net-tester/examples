@@ -15,6 +15,7 @@ end
 
 After do
   NetTester.kill
+  system('sudo rm -rf /etc/netns/*')
   cmd2hosts = RunCommands2Hosts.new
   cmd2hosts.run_command_for_all_hosts('c3750g_hosts.yml', 'c3750g_teardown.yml')
   cmd2hosts.run_command_for_all_hosts('ssg_hosts.yml', 'ssg_teardown.yml')
