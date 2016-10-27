@@ -9,6 +9,13 @@ GIT
       pio (~> 0.30.0)
 
 GIT
+  remote: git://github.com/stereocat/expectacle.git
+  revision: 40e556210749948dfbbe181522f35d2ebeed23a6
+  branch: develop
+  specs:
+    expectacle (0.0.1)
+
+GIT
   remote: git://github.com/trema/phut.git
   revision: 4a7502f8de2d06356b5309dbf9da56b653c69480
   branch: develop
@@ -121,6 +128,7 @@ PLATFORMS
 DEPENDENCIES
   aruba
   cucumber
+  expectacle!
   factory_girl
   net_tester!
   phut!
