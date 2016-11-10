@@ -12,3 +12,10 @@
   :username : "<%= ENV['L2SW_USER'] %>"
   :password : "<%= ENV['L2SW_PASS'] %>"
   :enable : "<%= ENV['L2SW_PASS'] %>"
+- :hostname : 'l2swex'
+  :type : 'c3750g'
+  :ipaddr : '192.168.20.152'
+  :protocol : 'ssh'
+  :username : "<%= ENV['L2SW_USER'] %>"
+  :password : "<%= ENV['L2SW_PASS'] %>"
+  :enable : "<%= ENV['L2SW_PASS'] %>"
