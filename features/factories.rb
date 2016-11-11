@@ -6,7 +6,7 @@ FactoryGirl.define do
     gateway '10.10.10.254'
   end
 
-  factory :ntp_client, class: Netns do
+  factory :ntp_client, class: NetTester::Netns do
     internal_network_host
 
     name 'ntp_client'
@@ -16,7 +16,7 @@ FactoryGirl.define do
     mac_address {'00:00:00:00:00:02'}
   end
 
-  factory :git_client, class: Netns do
+  factory :git_client, class: NetTester::Netns do
     internal_network_host
 
     name 'git_client'
@@ -26,7 +26,7 @@ FactoryGirl.define do
     mac_address {'00:00:00:00:00:03'}
   end
 
-  factory :git_server, class: Netns do
+  factory :git_server, class: NetTester::Netns do
     internal_network_host
 
     name 'git_server'
@@ -36,7 +36,7 @@ FactoryGirl.define do
     mac_address {'00:00:00:00:00:04'}
   end
 
-  factory :test_server, class: Netns do
+  factory :test_server, class: NetTester::Netns do
     internal_network_host
 
     name 'test_server'
@@ -46,7 +46,7 @@ FactoryGirl.define do
     mac_address {'00:00:00:00:00:05'}
   end
 
-  factory :browser_pc, class: Netns do
+  factory :browser_pc, class: NetTester::Netns do
     internal_network_host
 
     name 'browser_pc'
@@ -56,7 +56,7 @@ FactoryGirl.define do
     mac_address {'00:00:00:00:00:06'}
   end
 
-  factory :google_pc, class: Netns do
+  factory :google_pc, class: NetTester::Netns do
     internal_network_host
 
     name 'google_pc'
