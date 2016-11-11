@@ -88,6 +88,22 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
+  factory :vpn_server, class: NetTester::Netns do
+    name 'vpn_server'
+    dmz_network
+    ip_address '10.10.0.11'
+    physical_port_number 9
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
+  factory :vpn_address_pool, class: NetTester::Netns do
+    name 'vpn_addrpool'
+    dmz_network
+    ip_address '10.10.0.130'
+    physical_port_number 9
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
   trait :internet_network do
     netmask '255.255.255.0'
     gateway '198.51.100.254'
@@ -98,6 +114,14 @@ FactoryGirl.define do
     name 'internet_pc'
     internet_network
     ip_address '198.51.100.1'
+    physical_port_number 3
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
+  factory :tajimax_pc, class: NetTester::Netns do
+    name 'tajimax_pc'
+    internet_network
+    ip_address '198.51.100.94'
     physical_port_number 3
     mac_address {Faker::Internet.mac_address('00')}
   end
