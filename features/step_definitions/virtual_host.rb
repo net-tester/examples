@@ -1,3 +1,4 @@
+# coding: utf-8
 Given(/^ヨーヨーダイン社内部のクライアント$/) do
   @internal_pc = Netns.new(attributes_for(:internal_pc))
 end
@@ -18,6 +19,18 @@ Given(/^ヨーヨーダイン社のDMZ内部のサーバ$/) do
   @dmz_server = Netns.new(attributes_for(:dmz_server))
 end
 
+Given(/^ヨーヨーダイン社のDMZ内部のVPNサーバ$/) do
+  @vpn_server = Netns.new(attributes_for(:vpn_server))
+end
+
+Given(/^ヨーヨーダイン社のDMZ内部のVPNアドレスプール$/) do
+  @vpn_address_pool = Netns.new(attributes_for(:vpn_address_pool))
+end
+
 Given(/^Internet上のPC$/) do
   @internet_pc = Netns.new(attributes_for(:internet_pc))
+end
+
+Given(/^タジマックス工業のPC$/) do
+  @tajimax_pc = Netns.new(attributes_for(:tajimax_pc))
 end

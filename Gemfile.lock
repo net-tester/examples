@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/stereocat/expectacle.git
-  revision: 40e556210749948dfbbe181522f35d2ebeed23a6
+  revision: dbb15d38f40e90f6753c26ff178a5f743b7de243
   branch: develop
   specs:
     expectacle (0.0.1)

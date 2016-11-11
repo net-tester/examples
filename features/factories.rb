@@ -1,116 +1,128 @@
 # frozen_string_literal: true
 
 FactoryGirl.define do
+
+  sequence :virtual_port_number, 2
+
   trait :internal_network_host do
     netmask '255.255.255.0'
     gateway '10.10.10.254'
+    virtual_port_number
   end
 
-  factory :ntp_client, class: Netns do
-    internal_network_host
-
+  factory :ntp_client, class: NetTester::Netns do
     name 'ntp_client'
+    internal_network_host
     ip_address '10.10.10.3'
-    virtual_port_number 8
     physical_port_number 8
-    mac_address {'00:00:00:00:00:02'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :git_client, class: Netns do
-    internal_network_host
-
+  factory :git_client, class: NetTester::Netns do
     name 'git_client'
+    internal_network_host
     ip_address '10.10.10.3'
-    virtual_port_number 8
     physical_port_number 8
-    mac_address {'00:00:00:00:00:03'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :git_server, class: Netns do
-    internal_network_host
-
+  factory :git_server, class: NetTester::Netns do
     name 'git_server'
+    internal_network_host
     ip_address '10.10.10.1'
-    virtual_port_number 4
     physical_port_number 4
-    mac_address {'00:00:00:00:00:04'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :test_server, class: Netns do
-    internal_network_host
-
+  factory :test_server, class: NetTester::Netns do
     name 'test_server'
+    internal_network_host
     ip_address '10.10.10.2'
-    virtual_port_number 4
     physical_port_number 4
-    mac_address {'00:00:00:00:00:05'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :browser_pc, class: Netns do
-    internal_network_host
-
+  factory :browser_pc, class: NetTester::Netns do
     name 'browser_pc'
+    internal_network_host
     ip_address '10.10.10.3'
-    virtual_port_number 8
     physical_port_number 8
-    mac_address {'00:00:00:00:00:06'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :google_pc, class: Netns do
-    internal_network_host
-
+  factory :google_pc, class: NetTester::Netns do
     name 'google_pc'
+    internal_network_host
     ip_address '10.10.10.4'
-    virtual_port_number 3
     physical_port_number 3
-    mac_address {'00:00:00:00:00:13'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :internal_pc, class: NetTester::Netns do
     name 'internal_pc'
     internal_network_host
-
     ip_address '10.10.10.4'
-    virtual_port_number 8
     physical_port_number 8
-    mac_address {'00:00:00:00:00:07'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   trait :dmz_network do
     netmask '255.255.255.0'
     gateway '10.10.0.1'
+    virtual_port_number
   end
 
   factory :dmz_server, class: NetTester::Netns do
     name 'dmz_server'
     dmz_network
     ip_address '10.10.0.100'
-    virtual_port_number 9
     physical_port_number 9
-    mac_address {'00:00:00:00:00:10'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :dns_server, class: NetTester::Netns do
     name 'dns_server'
     dmz_network
-
     ip_address '10.10.0.10'
-    virtual_port_number 5
     physical_port_number 5
-    mac_address {'00:00:00:00:00:08'}
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
+  factory :vpn_server, class: NetTester::Netns do
+    name 'vpn_server'
+    dmz_network
+    ip_address '10.10.0.11'
+    physical_port_number 9
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
+  factory :vpn_address_pool, class: NetTester::Netns do
+    name 'vpn_addrpool'
+    dmz_network
+    ip_address '10.10.0.130'
+    physical_port_number 9
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   trait :internet_network do
     netmask '255.255.255.0'
     gateway '198.51.100.254'
+    virtual_port_number
   end
 
   factory :internet_pc, class: NetTester::Netns do
     name 'internet_pc'
     internet_network
     ip_address '198.51.100.1'
-    virtual_port_number 3
     physical_port_number 3
-    mac_address {'00:00:00:00:00:11'}
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
+  factory :tajimax_pc, class: NetTester::Netns do
+    name 'tajimax_pc'
+    internet_network
+    ip_address '198.51.100.94'
+    physical_port_number 3
+    mac_address {Faker::Internet.mac_address('00')}
   end
 end

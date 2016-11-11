@@ -1,0 +1,4 @@
+- "set console page 0"
+- "get nsrp"
+- "unset console page"
+
