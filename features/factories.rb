@@ -11,54 +11,48 @@ FactoryGirl.define do
   end
 
   factory :ntp_client, class: NetTester::Netns do
-    internal_network_host
-
     name 'ntp_client'
+    internal_network_host
     ip_address '10.10.10.3'
     physical_port_number 8
     mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :git_client, class: NetTester::Netns do
-    internal_network_host
-
     name 'git_client'
+    internal_network_host
     ip_address '10.10.10.3'
     physical_port_number 8
     mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :git_server, class: NetTester::Netns do
-    internal_network_host
-
     name 'git_server'
+    internal_network_host
     ip_address '10.10.10.1'
     physical_port_number 4
     mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :test_server, class: NetTester::Netns do
-    internal_network_host
-
     name 'test_server'
+    internal_network_host
     ip_address '10.10.10.2'
     physical_port_number 4
     mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :browser_pc, class: NetTester::Netns do
-    internal_network_host
-
     name 'browser_pc'
+    internal_network_host
     ip_address '10.10.10.3'
     physical_port_number 8
     mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :google_pc, class: NetTester::Netns do
-    internal_network_host
-
     name 'google_pc'
+    internal_network_host
     ip_address '10.10.10.4'
     physical_port_number 3
     mac_address {Faker::Internet.mac_address('00')}
@@ -67,7 +61,6 @@ FactoryGirl.define do
   factory :internal_pc, class: NetTester::Netns do
     name 'internal_pc'
     internal_network_host
-
     ip_address '10.10.10.4'
     physical_port_number 8
     mac_address {Faker::Internet.mac_address('00')}
@@ -90,7 +83,6 @@ FactoryGirl.define do
   factory :dns_server, class: NetTester::Netns do
     name 'dns_server'
     dmz_network
-
     ip_address '10.10.0.10'
     physical_port_number 5
     mac_address {Faker::Internet.mac_address('00')}
