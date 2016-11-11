@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 FactoryGirl.define do
+
+  sequence :virtual_port_number, 2
+
   trait :internal_network_host do
     netmask '255.255.255.0'
     gateway '10.10.10.254'
+    virtual_port_number
   end
 
   factory :ntp_client, class: NetTester::Netns do
@@ -11,7 +15,6 @@ FactoryGirl.define do
 
     name 'ntp_client'
     ip_address '10.10.10.3'
-    virtual_port_number 8
     physical_port_number 8
     mac_address {'00:00:00:00:00:02'}
   end
@@ -21,7 +24,6 @@ FactoryGirl.define do
 
     name 'git_client'
     ip_address '10.10.10.3'
-    virtual_port_number 8
     physical_port_number 8
     mac_address {'00:00:00:00:00:03'}
   end
@@ -31,7 +33,6 @@ FactoryGirl.define do
 
     name 'git_server'
     ip_address '10.10.10.1'
-    virtual_port_number 4
     physical_port_number 4
     mac_address {'00:00:00:00:00:04'}
   end
@@ -41,7 +42,6 @@ FactoryGirl.define do
 
     name 'test_server'
     ip_address '10.10.10.2'
-    virtual_port_number 4
     physical_port_number 4
     mac_address {'00:00:00:00:00:05'}
   end
@@ -51,7 +51,6 @@ FactoryGirl.define do
 
     name 'browser_pc'
     ip_address '10.10.10.3'
-    virtual_port_number 8
     physical_port_number 8
     mac_address {'00:00:00:00:00:06'}
   end
@@ -61,7 +60,6 @@ FactoryGirl.define do
 
     name 'google_pc'
     ip_address '10.10.10.4'
-    virtual_port_number 3
     physical_port_number 3
     mac_address {'00:00:00:00:00:13'}
   end
@@ -71,7 +69,6 @@ FactoryGirl.define do
     internal_network_host
 
     ip_address '10.10.10.4'
-    virtual_port_number 8
     physical_port_number 8
     mac_address {'00:00:00:00:00:07'}
   end
@@ -79,13 +76,13 @@ FactoryGirl.define do
   trait :dmz_network do
     netmask '255.255.255.0'
     gateway '10.10.0.1'
+    virtual_port_number
   end
 
   factory :dmz_server, class: NetTester::Netns do
     name 'dmz_server'
     dmz_network
     ip_address '10.10.0.100'
-    virtual_port_number 9
     physical_port_number 9
     mac_address {'00:00:00:00:00:10'}
   end
@@ -95,7 +92,6 @@ FactoryGirl.define do
     dmz_network
 
     ip_address '10.10.0.10'
-    virtual_port_number 5
     physical_port_number 5
     mac_address {'00:00:00:00:00:08'}
   end
@@ -103,13 +99,13 @@ FactoryGirl.define do
   trait :internet_network do
     netmask '255.255.255.0'
     gateway '198.51.100.254'
+    virtual_port_number
   end
 
   factory :internet_pc, class: NetTester::Netns do
     name 'internet_pc'
     internet_network
     ip_address '198.51.100.1'
-    virtual_port_number 3
     physical_port_number 3
     mac_address {'00:00:00:00:00:11'}
   end
