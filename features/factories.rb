@@ -16,7 +16,7 @@ FactoryGirl.define do
     name 'ntp_client'
     ip_address '10.10.10.3'
     physical_port_number 8
-    mac_address {'00:00:00:00:00:02'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :git_client, class: NetTester::Netns do
@@ -25,7 +25,7 @@ FactoryGirl.define do
     name 'git_client'
     ip_address '10.10.10.3'
     physical_port_number 8
-    mac_address {'00:00:00:00:00:03'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :git_server, class: NetTester::Netns do
@@ -34,7 +34,7 @@ FactoryGirl.define do
     name 'git_server'
     ip_address '10.10.10.1'
     physical_port_number 4
-    mac_address {'00:00:00:00:00:04'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :test_server, class: NetTester::Netns do
@@ -43,7 +43,7 @@ FactoryGirl.define do
     name 'test_server'
     ip_address '10.10.10.2'
     physical_port_number 4
-    mac_address {'00:00:00:00:00:05'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :browser_pc, class: NetTester::Netns do
@@ -52,7 +52,7 @@ FactoryGirl.define do
     name 'browser_pc'
     ip_address '10.10.10.3'
     physical_port_number 8
-    mac_address {'00:00:00:00:00:06'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :google_pc, class: NetTester::Netns do
@@ -61,7 +61,7 @@ FactoryGirl.define do
     name 'google_pc'
     ip_address '10.10.10.4'
     physical_port_number 3
-    mac_address {'00:00:00:00:00:13'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :internal_pc, class: NetTester::Netns do
@@ -70,7 +70,7 @@ FactoryGirl.define do
 
     ip_address '10.10.10.4'
     physical_port_number 8
-    mac_address {'00:00:00:00:00:07'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   trait :dmz_network do
@@ -84,7 +84,7 @@ FactoryGirl.define do
     dmz_network
     ip_address '10.10.0.100'
     physical_port_number 9
-    mac_address {'00:00:00:00:00:10'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   factory :dns_server, class: NetTester::Netns do
@@ -93,7 +93,7 @@ FactoryGirl.define do
 
     ip_address '10.10.0.10'
     physical_port_number 5
-    mac_address {'00:00:00:00:00:08'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 
   trait :internet_network do
@@ -107,6 +107,6 @@ FactoryGirl.define do
     internet_network
     ip_address '198.51.100.1'
     physical_port_number 3
-    mac_address {'00:00:00:00:00:11'}
+    mac_address {Faker::Internet.mac_address('00')}
   end
 end
