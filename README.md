@@ -10,3 +10,6 @@
 * [sshで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_test_environment_server_from_internal_network.feature)
 * [pingでインターネットからルータへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_router_from_internet.feature)
 * [pingでインターネットからファイアウォールへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_firewall_from_internet.feature)
+* [内部ネットワーク向けリンク障害と回復時におけるpingの通信継続確認](https://github.com/net-tester/examples/blob/develop/features/icmp_fw1_l2sw1_linkdown.feature)
+* [外部ネットワーク向けリンク障害と回復時におけるpingの通信継続確認](https://github.com/net-tester/examples/blob/develop/features/icmp_fw1_l2swex_linkdown.feature)
+* [外部ネットワーク向けリンク障害と回復時におけるTCPの接続維持確認](https://github.com/net-tester/examples/blob/develop/features/tcp_fw1_l2sw1_linkdown.feature)
