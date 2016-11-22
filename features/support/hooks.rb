@@ -11,6 +11,7 @@ Before do
   device = ENV['DEVICE'] || 'eth1'
   dpid = ENV['DPID'].try(&:hex) || 0x123
   NetTester.run(network_device: device, physical_switch_dpid: dpid)
+  sleep 2
 end
 
 After do
