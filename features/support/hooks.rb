@@ -16,7 +16,7 @@ end
 After do
   NetTester.kill
   system('sudo rm -rf /etc/netns/*')
-  thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/expectacle', logger: :syslog)
+  thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/expectacle', logger: :syslog, verbose: false)
   l2sw_hosts = YAML.load_file("#{thrower.hosts_dir}/c3750g_hosts.yml")
   l2sw_commands = YAML.load_file("#{thrower.commands_dir}/c3750g_teardown.yml")
   fw_hosts = YAML.load_file("#{thrower.hosts_dir}/ssg_hosts.yml")
