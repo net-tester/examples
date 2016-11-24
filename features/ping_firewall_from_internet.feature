@@ -1,3 +1,4 @@
+@demo
 Feature: Internetからヨーヨーダイン社のRouterへの疎通確認
 
   ヨーヨーダイン社の管理者として、

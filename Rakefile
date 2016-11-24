@@ -12,6 +12,17 @@ rescue LoadError
 end
 
 begin
+  require 'cucumber/rake/task'
+  Cucumber::Rake::Task.new(:demo) do |task|
+    task.cucumber_opts = '--tags @demo'
+  end
+rescue LoadError
+  task :cucumber do
+    $stderr.puts 'Cucumber is disabled'
+  end
+end
+
+begin
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new
 rescue LoadError
