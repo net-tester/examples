@@ -1,5 +1,4 @@
 # coding: utf-8
-require 'expectacle'
 
 When(/^ヨーヨーダイン社のDMZ内部のVPNサーバにタジマックス工業のPCからTCP接続を開始$/) do
   cd('.') do

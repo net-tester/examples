@@ -1,5 +1,4 @@
 # coding: utf-8
-require 'expectacle'
 
 When(/^ヨーヨーダイン社のDMZ内部のVPNサーバにタジマックス工業のPCからpingを連続実行$/) do
   cd('.') do

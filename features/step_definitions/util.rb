@@ -1,13 +1,17 @@
 require 'expectacle'
 
 def make_port_down(port)
-    thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/../support/expectacle')
-    thrower.run_command_for_all_hosts('pica8_hosts.yml', "pica8_port_#{port}_down.yml")
+    thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/../support/expectacle', logger: :syslog, verbose: false)
+    pica8_hosts = YAML.load_file("#{thrower.hosts_dir}/pica8_hosts.yml")
+    pica8_commands = YAML.load_file("#{thrower.commands_dir}/pica8_port_#{port}_down.yml")
+    thrower.run_command_for_all_hosts(pica8_hosts, pica8_commands)
 end
 
 def make_port_up(port)
-    thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/../support/expectacle')
-    thrower.run_command_for_all_hosts('pica8_hosts.yml', "pica8_port_#{port}_up.yml")
+    thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/../support/expectacle', logger: :syslog, verbose: false)
+    pica8_hosts = YAML.load_file("#{thrower.hosts_dir}/pica8_hosts.yml")
+    pica8_commands = YAML.load_file("#{thrower.commands_dir}/pica8_port_#{port}_up.yml")
+    thrower.run_command_for_all_hosts(pica8_hosts, pica8_commands)
 end
 
 def check_connection(log_filename)

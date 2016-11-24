@@ -10,10 +10,10 @@ GIT
 
 GIT
   remote: git://github.com/stereocat/expectacle.git
-  revision: dbb15d38f40e90f6753c26ff178a5f743b7de243
+  revision: dcc5e1adc3cac95fe625bb90c6b336a76826738f
   branch: develop
   specs:
-    expectacle (0.0.1)
+    expectacle (0.0.3)
 
 GIT
   remote: git://github.com/trema/phut.git
