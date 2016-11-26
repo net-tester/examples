@@ -31,6 +31,10 @@ Given(/^Internet上のPC$/) do
   @internet_pc = Netns.new(attributes_for(:internet_pc))
 end
 
+Given(/^Internet上のDNSサーバ$/) do
+  @internet_dns_server = Netns.new(attributes_for(:internet_dns))
+end
+
 Given(/^タジマックス工業のPC$/) do
   @tajimax_pc = Netns.new(attributes_for(:tajimax_pc))
 end
