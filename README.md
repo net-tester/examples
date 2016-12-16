@@ -61,7 +61,7 @@ FW を経由する通信を伴う業務が継続可能かどうかテストし�
 * [内部ネットワーク向けリンク障害と回復時におけるpingの通信継続確認](https://github.com/net-tester/examples/blob/develop/features/icmp_fw1_l2sw1_linkdown.feature)
 * [外部ネットワーク向けリンク障害と回復時におけるpingの通信継続確認](https://github.com/net-tester/examples/blob/develop/features/icmp_fw1_l2swex_linkdown.feature)
 * [外部ネットワーク向けリンク障害と回復時におけるTCPの接続維持確認](https://github.com/net-tester/examples/blob/develop/features/tcp_fw1_l2sw1_linkdown.feature)
-* [リモートワーク作業中のリンク障害、回復における接続維持確認](https://github.com/net-tester/examples/blob/feature/ood_demo/features/remotework_linkdown.feature)
+* [リモートワーク作業中のリンク障害、回復における接続維持確認](https://github.com/net-tester/examples/blob/feature/develop/features/remotework_linkdown.feature)
 
 ## 実際のテストの様子
 実際にテストを実行している様子を、以下のリンク先から見ることができます。
