@@ -38,3 +38,9 @@ end
 Given(/^タジマックス工業のPC$/) do
   @tajimax_pc = Netns.new(attributes_for(:tajimax_pc))
 end
+
+Given(/^タジマックス工業のPCをVPNクライアントに$/) do
+  step %(タジマックス工業のPC)
+end
+
+
