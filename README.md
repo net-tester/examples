@@ -41,6 +41,7 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 * [sshで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_test_environment_server_from_internal_network.feature)
 * [pingでインターネットからルータへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_router_from_internet.feature)
 * [pingでインターネットからファイアウォールへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_firewall_from_internet.feature)
+* [pingで社内からインターネットへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_internet_from_internal_network.feature)
 
 ### 動的なテスト
 このプロジェクトでは、ネットワークの状態が変化するとき
