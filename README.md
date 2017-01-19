@@ -42,6 +42,7 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 * [pingでインターネットからルータへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_router_from_internet.feature)
 * [pingでインターネットからファイアウォールへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_firewall_from_internet.feature)
 * [Webブラウザで社内テスト環境Webコンソールへアクセス](https://github.com/net-tester/examples/blob/develop/features/jenkins_internal_network.feature)
+* [telnetで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/telnet_internal_network.feature)
 
 ### 動的なテスト
 このプロジェクトでは、ネットワークの状態が変化するとき
