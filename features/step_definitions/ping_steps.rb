@@ -1,3 +1,4 @@
+# coding: utf-8
 When(/^ヨーヨーダイン社内部のクライアントにDMZからpingで疎通確認$/) do
   cd('.') do
     @dmz_server.exec "ping #{@internal_pc.ip_address} -c 4 > log/ping.log"
@@ -31,6 +32,12 @@ end
 When(/^Internet上のサーバにヨーヨーダイン社のPCからpingで疎通確認$/) do
   cd('.') do
     @internal_pc.exec "ping #{@internet_server.ip_address} -c 4 > log/ping.log"
+  end
+end
+
+When(/^SSLVPNサーバにタジマックス工業のPCからpingで疎通確認$/) do
+  cd('.') do
+    @tajimax_pc.exec 'ping 203.0.113.5 -c 4 > log/ping.log'
   end
 end
 
