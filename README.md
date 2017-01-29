@@ -51,6 +51,7 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 * [telnetでDMZのVPNアドレスプールからテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/telnet_internal_network_from_dmz.feature)
 * [Webブラウザで社内テスト環境Webコンソールへアクセス](https://github.com/net-tester/examples/blob/develop/features/jenkins_internal_network.feature)
 * [DMZのVPNアドレスプールからWebブラウザで社内テスト環境Webコンソールへアクセス](https://github.com/net-tester/examples/blob/develop/features/jenkins_internal_network_from_dmz.feature)
+* [DMZ内サーバのパッケージ更新](https://github.com/net-tester/examples/blob/develop/features/web_internet_from_dmz.feature)
 
 ### 動的なテスト
 このプロジェクトでは、ネットワークの状態が変化するとき
