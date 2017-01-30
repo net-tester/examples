@@ -31,6 +31,7 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 静的なテストの例:
 * [NTP で時刻を同期](https://github.com/net-tester/examples/blob/develop/features/ntp.feature)
 * [社内 Git サービス](https://github.com/net-tester/examples/blob/develop/features/git.feature)
+* [DMZのVPNアドレスプールから社内 Git サービスの利用](https://github.com/net-tester/examples/blob/develop/features/git_internal_from_dmz_vpn.feature)
 * [Google 検索](https://github.com/net-tester/examples/blob/develop/features/google.feature)
 * [社内 DNS サーバで名前解決](https://github.com/net-tester/examples/blob/develop/features/dns_dmz_from_internal_network.feature)
 * [上位 DNS サーバで名前解決](https://github.com/net-tester/examples/blob/develop/features/dns_internet_from_dmz.feature)

@@ -17,6 +17,12 @@ When(/^開発者 PC から社内 Git リポジトリへアクセス$/) do
   end
 end
 
+When(/^ヨーヨーダイン社のDMZ内部のVPNアドレスプールからヨーヨーダイン社内 Git リポジトリへアクセス$/) do
+  cd('.') do
+    @vpn_address_pool.exec "nc -v #{@git_server.ip_address} 11000 > log/nc_git.log"
+  end
+end
+
 Then(/^社内 Git リポジトリにアクセス成功$/) do
   step %(the file "log/nc_git.log" should contain "OK")
 end
