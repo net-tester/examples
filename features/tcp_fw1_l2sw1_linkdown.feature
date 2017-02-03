@@ -4,7 +4,7 @@ Feature: FW1-L2SW1間リンク障害試験
   なぜなら開発環境に接続できなくなると業務がストップしてしまうから
 
   Scenario: リンクダウンの発生後のFailover確認[a]
-    Given ヨーヨーダイン社のDMZ内部のVPNサーバ
+    Given ヨーヨーダイン社の VPN サーバ
     And タジマックス工業のPC
     When ヨーヨーダイン社のDMZ内部のVPNサーバにタジマックス工業のPCからTCP接続を開始
     And 10 秒待つ
@@ -13,7 +13,7 @@ Feature: FW1-L2SW1間リンク障害試験
     And FWの主系が Passive 、予備系が Active になっていること
 
   Scenario: リンクダウンの発生後のFailback確認[a]
-    Given ヨーヨーダイン社のDMZ内部のVPNサーバ
+    Given ヨーヨーダイン社の VPN サーバ
     And タジマックス工業のPC
     When ヨーヨーダイン社のDMZ内部のVPNサーバにタジマックス工業のPCからTCP接続を開始
     And 10 秒待つ
