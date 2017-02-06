@@ -8,4 +8,4 @@ Feature: ヨーヨーダイン社内部からヨーヨーダイン社のDMZ内�
     Given ヨーヨーダイン社内部のクライアント
     And ヨーヨーダイン社のDMZ内部のサーバ
     When DMZにヨーヨーダイン社のPCからpingで疎通確認
-    Then pingで疎通成功
+    Then ping で疎通成功
