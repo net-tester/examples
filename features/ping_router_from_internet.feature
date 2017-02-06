@@ -8,4 +8,4 @@ Feature: Internetからヨーヨーダイン社のRouterへの疎通確認
   Scenario: Internetからヨーヨーダイン社のRouterへの疎通確認
     Given Internet上のPC
     When ヨーヨーダイン社のRouterにInternet上のPCからpingで疎通確認
-    Then pingで疎通成功
+    Then ping で疎通成功

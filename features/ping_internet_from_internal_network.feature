@@ -8,4 +8,4 @@ Feature: ヨーヨーダイン社内部からInternet上のサーバへの疎通
     Given ヨーヨーダイン社内部のクライアント
     And Internet上のサーバ
     When Internet上のサーバにヨーヨーダイン社のPCからpingで疎通確認
-    Then pingで疎通成功
+    Then ping で疎通成功

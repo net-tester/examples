@@ -92,7 +92,8 @@ FactoryGirl.define do
     name 'vpn_server'
     dmz_network
     ip_address '10.10.0.11'
-    physical_port_number 9
+    physical_port_number 10
+    vlan_id 2023
     mac_address {Faker::Internet.mac_address('00')}
   end
 
