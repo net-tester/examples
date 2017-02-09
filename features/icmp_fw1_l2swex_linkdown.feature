@@ -21,7 +21,7 @@ Feature: FW1-L2SWEX間リンク障害試験
 
   Scenario: リンクダウンの発生後のFailover確認[b]
     Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
+    And ヨーヨーダイン社の DMZ のサーバ
     When DMZ内部のサーバにヨーヨーダイン社内部のクライアントからpingを連続実行
     And FW1-L2SWEX間リンク障害発生
     Then DMZ内部のサーバにヨーヨーダイン社内部のクライアントからのpingによる疎通が 10 秒以内に復帰
@@ -29,7 +29,7 @@ Feature: FW1-L2SWEX間リンク障害試験
 
   Scenario: リンクダウンの発生後のFailback確認[b]
     Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
+    And ヨーヨーダイン社の DMZ のサーバ
     When DMZ内部のサーバにヨーヨーダイン社内部のクライアントからpingを連続実行
     And FW1-L2SWEX間リンク障害回復
     Then DMZ内部のサーバにヨーヨーダイン社内部のクライアントからのpingによる疎通が 10 秒以内に復帰

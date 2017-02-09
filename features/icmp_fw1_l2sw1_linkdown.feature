@@ -23,7 +23,7 @@ Feature: FW1-L2SW1間リンク障害試験
 
   Scenario: リンクダウンの発生後のFailover確認[b]
     Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
+    And ヨーヨーダイン社の DMZ のサーバ
     When DMZ内部のサーバにヨーヨーダイン社内部のクライアントからpingを連続実行
     And 10 秒待つ
     And FW1-L2SW1間リンク障害発生
@@ -32,7 +32,7 @@ Feature: FW1-L2SW1間リンク障害試験
 
   Scenario: リンクダウンの発生後のFailback確認[b]
     Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
+    And ヨーヨーダイン社の DMZ のサーバ
     When DMZ内部のサーバにヨーヨーダイン社内部のクライアントからpingを連続実行
     And 10 秒待つ
     And FW1-L2SW1間リンク障害回復

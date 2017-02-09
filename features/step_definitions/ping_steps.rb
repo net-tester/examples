@@ -41,6 +41,12 @@ When(/^インターネット上のサーバにヨーヨーダイン社の PC か
   end
 end
 
+When(/^インターネット上のサーバに DMZ のサーバから ping$/) do
+  cd('.') do
+    @dmz_server.exec "ping #{@internet_server.ip_address} -c 4 > log/ping.log"
+  end
+end
+
 When(/^VPN サーバにタジマックス工業の PC から ping で疎通確認$/) do
   cd('.') do
     @tajimax_pc.exec 'ping 203.0.113.5 -c 4 > log/ping.log'
