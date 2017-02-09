@@ -1,11 +1,11 @@
-Feature: DMZからInternet上のサーバへの疎通確認
+Feature: DMZ から インターネット上のサーバへの ping
 
   ヨーヨーダイン社の管理者として、
-  DMZからInternet上のサーバへの疎通確認をしたい
-  なぜならDMZのサーバはInternet上のサーバにアクセスする必要があるから
+  DMZ からインターネット上のサーバにつながるか確認したい
+  なぜなら DMZ のサーバはインターネット上のサーバにアクセスする必要があるから
 
-  Scenario: DMZからInternet上のサーバへの疎通確認
-    Given ヨーヨーダイン社のDMZ内部のサーバ
-    And Internet上のサーバ
-    When Internet上のサーバにDMZ内部のサーバからpingで疎通確認
-    Then pingで疎通成功
+  Scenario: DMZ からインターネット上のサーバへの ping
+    Given ヨーヨーダイン社の DMZ のサーバ
+    And インターネット上のサーバ
+    When インターネット上のサーバに DMZ のサーバから ping
+    Then ping 成功

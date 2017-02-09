@@ -41,7 +41,7 @@ When(/^インターネット上のサーバにヨーヨーダイン社の PC か
   end
 end
 
-When(/^Internet上のサーバにDMZ内部のサーバからpingで疎通確認$/) do
+When(/^インターネット上のサーバに DMZ のサーバから ping$/) do
   cd('.') do
     @dmz_server.exec "ping #{@internet_server.ip_address} -c 4 > log/ping.log"
   end
