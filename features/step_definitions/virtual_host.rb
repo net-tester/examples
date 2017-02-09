@@ -15,7 +15,7 @@ Given(/^ヨーヨーダイン社内部のテスト環境サーバ$/) do
   @test_server = Netns.new(attributes_for(:test_server))
 end
 
-Given(/^ヨーヨーダイン社の DMZ 内の DNS サーバ$/) do
+Given(/^ヨーヨーダイン社の DMZ の DNS サーバ$/) do
   @dns_server = Netns.new(attributes_for(:dns_server))
 end
 
