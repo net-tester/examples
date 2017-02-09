@@ -1,4 +1,8 @@
 # coding: utf-8
+Given(/^ヨーヨーダイン社内部のユーザ PC$/) do
+  @user_pc = Netns.new(attributes_for(:user_pc))
+end
+
 Given(/^ヨーヨーダイン社内部のクライアント$/) do
   @internal_pc = Netns.new(attributes_for(:internal_pc))
 end
@@ -11,7 +15,7 @@ Given(/^ヨーヨーダイン社内部のテスト環境サーバ$/) do
   @test_server = Netns.new(attributes_for(:test_server))
 end
 
-Given(/^ヨーヨーダイン社のDMZ内のDNSサーバ$/) do
+Given(/^ヨーヨーダイン社の DMZ の DNS サーバ$/) do
   @dns_server = Netns.new(attributes_for(:dns_server))
 end
 
