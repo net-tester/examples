@@ -14,7 +14,7 @@ When(/^DMZ内部のサーバにヨーヨーダイン社内部のクライアン�
   end
 end
 
-When(/^Internet上のPCにヨーヨーダイン社内部のクライアントからpingを連続実行$/) do
+When(/^インターネット上の PC にヨーヨーダイン社内部のクライアントから ping を連続実行$/) do
   cd('.') do
     @ping_client = AsyncExecutor.new(host: @internal_pc, result_file: 'log/ping_c.log')
     @ping_client.exec("ping -D -i 0.1 -c 300 #{@internet_pc.ip_address}")
@@ -37,7 +37,7 @@ Then(/^DMZ内部のサーバにヨーヨーダイン社内部のクライアン�
   end
 end
 
-Then(/^Internet上のPCにヨーヨーダイン社内部のクライアントからのpingによる疎通が (\d+) 秒以内に復帰$/) do |seconds|
+Then(/^インターネット上の PC にヨーヨーダイン社内部のクライアントからの ping による疎通が (\d+) 秒以内に復帰$/) do |seconds|
   @ping_client.join
   cd('.') do
     _, time_diff = check_connection('log/ping_c.log')

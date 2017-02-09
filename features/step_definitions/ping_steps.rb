@@ -17,30 +17,30 @@ When(/^DMZにヨーヨーダイン社のPCからpingで疎通確認$/) do
   end
 end
 
-When(/^ヨーヨーダイン社のRouterにInternet上のPCからpingで疎通確認$/) do
+When(/^ヨーヨーダイン社の Router にインターネット上の PC から ping$/) do
   cd('.') do
     @internet_pc.exec 'ping 203.0.113.1 -c 4 > log/ping.log'
   end
 end
 
-When(/^FirewallにInternet上のPCからpingで疎通確認$/) do
+When(/^Firewall にインターネット上の PC から ping$/) do
   cd('.') do
     @internet_pc.exec 'ping 203.0.113.2 -c 4 > log/ping.log'
   end
 end
 
-When(/^SSLVPNサーバにInternet上のPCからpingで疎通確認$/) do
+When(/^VPN サーバにインターネット上の PC から ping$/) do
   cd('.') do
     @internet_pc.exec 'ping 203.0.113.5 -c 4 > log/ping.log'
   end
 end
 
-When(/^Internet上のサーバにヨーヨーダイン社のPCからpingで疎通確認$/) do
+When(/^インターネット上のサーバにヨーヨーダイン社の PC から ping$/) do
   cd('.') do
     @internal_pc.exec "ping #{@internet_server.ip_address} -c 4 > log/ping.log"
   end
 end
 
-Then(/^pingで疎通成功$/) do
+Then(/^ping 成功$/) do
   step %(the file "log/ping.log" should contain "4 received, 0% packet loss")
 end

@@ -1,11 +1,11 @@
-Feature: InternetからSSLVPNサーバへの疎通確認
+Feature: インターネットから VPN サーバへ ping
 
   ヨーヨーダイン社の管理者として、
-  InternetからSSLVPNサーバへの疎通確認をしたい
-  なぜならタジマックス社の開発者はSSLVPNサーバを経由して開発環境にアクセスするから
+  インターネットから VPN サーバへの疎通を確認したい
+  なぜならタジマックス社の開発者は VPN サーバを経由して開発環境にアクセスするから
 
-  Scenario: InternetからSSLVPNサーバへの疎通確認
-    Given  Internet上のPC
-    And ヨーヨーダイン社のDMZ内部のVPNサーバ
-    When SSLVPNサーバにInternet上のPCからpingで疎通確認
-    Then pingで疎通成功
+  Scenario: インターネットから VPN サーバへ ping
+    Given  インターネット上の PC
+    And ヨーヨーダイン社の VPN サーバ
+    When VPN サーバにインターネット上の PC から ping
+    Then ping 成功
