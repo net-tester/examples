@@ -35,12 +35,12 @@ When(/^Internet上のサーバにヨーヨーダイン社のPCからpingで疎�
   end
 end
 
-When(/^SSLVPNサーバにタジマックス工業のPCからpingで疎通確認$/) do
+When(/^VPN サーバにタジマックス工業の PC から ping で疎通確認$/) do
   cd('.') do
     @tajimax_pc.exec 'ping 203.0.113.5 -c 4 > log/ping.log'
   end
 end
 
-Then(/^pingで疎通成功$/) do
+Then(/^ping で疎通成功$/) do
   step %(the file "log/ping.log" should contain "4 received, 0% packet loss")
 end
