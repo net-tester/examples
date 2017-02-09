@@ -1,11 +1,11 @@
-Feature: ヨーヨーダイン社内部からDMZのDNSサーバにsshでログイン
+Feature: ヨーヨーダイン社内部の PC から DMZ 内の DNS サーバに ssh でログイン
 
   ヨーヨーダイン社の管理者として、
-  ヨーヨーダイン社内部からDMZ内のDNSサーバにsshでログインしたい
+  ヨーヨーダイン社内部の PC から DMZ 内の DNS サーバに ssh でログインしたい
   なぜならメンテナンス業務に必要だから
 
-  Scenario: ヨーヨーダイン社からDMZ内のDNSサーバにsshでログイン
-    Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内のDNSサーバ
-    When ヨーヨーダイン社からDMZ内のDNSサーバにsshでログイン
-    Then ヨーヨーダイン社からDMZ内のDNSサーバにsshでログイン成功
+  Scenario: ヨーヨーダイン社内部の PC から DMZ 内の DNS サーバに ssh でログイン
+    Given ヨーヨーダイン社内部のユーザ PC
+    And ヨーヨーダイン社の DMZ 内の DNS サーバ
+    When DNS サーバに ssh でログイン
+    Then ログイン成功
