@@ -6,6 +6,6 @@ Feature: DNS で名前解決
 
   Scenario: DNS サーバで名前解決
     Given ヨーヨーダイン社のDMZ内のDNSサーバ
-    And Internet上のDNSサーバ
+    And インターネット上の DNS サーバ
     When インターネット上のDNSサーバでインターネット上のサーバの名前解決
     Then 名前解決に成功

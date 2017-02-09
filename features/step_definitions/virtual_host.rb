@@ -27,15 +27,15 @@ Given(/^ヨーヨーダイン社のDMZ内部のVPNアドレスプール$/) do
   @vpn_address_pool = Netns.new(attributes_for(:vpn_address_pool))
 end
 
-Given(/^Internet上のPC$/) do
+Given(/^インターネット上の PC$/) do
   @internet_pc = Netns.new(attributes_for(:internet_pc))
 end
 
-Given(/^Internet上のDNSサーバ$/) do
+Given(/^インターネット上の DNS サーバ$/) do
   @internet_dns_server = Netns.new(attributes_for(:internet_dns))
 end
 
-Given(/^Internet上のサーバ$/) do
+Given(/^インターネット上のサーバ$/) do
   @internet_server = Netns.new(attributes_for(:internet_server))
 end
 

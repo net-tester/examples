@@ -8,4 +8,4 @@ Feature: ヨーヨーダイン社内部からDNSサーバへの疎通確認
     Given ヨーヨーダイン社内部のクライアント
     And ヨーヨーダイン社のDMZ内のDNSサーバ
     When DNSサーバにヨーヨーダイン社PCからpingで疎通確認
-    Then ping で疎通成功
+    Then ping 成功

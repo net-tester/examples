@@ -41,19 +41,19 @@ Feature: FW1-L2SW1間リンク障害試験
 
   Scenario: リンクダウンの発生後のFailover確認[c]
     Given ヨーヨーダイン社内部のクライアント
-    And Internet上のPC
-    When Internet上のPCにヨーヨーダイン社内部のクライアントからpingを連続実行
+    And インターネット上の PC
+    When インターネット上の PC にヨーヨーダイン社内部のクライアントから ping を連続実行
     And 10 秒待つ
     And FW1-L2SW1間リンク障害発生
-    Then Internet上のPCにヨーヨーダイン社内部のクライアントからのpingによる疎通が 10 秒以内に復帰
+    Then インターネット上の PC にヨーヨーダイン社内部のクライアントからの ping による疎通が 10 秒以内に復帰
     And FWの主系が Passive 、予備系が Active になっていること
 
   Scenario: リンクダウンの発生後のFailback確認[c]
     Given ヨーヨーダイン社内部のクライアント
-    And Internet上のPC
-    When Internet上のPCにヨーヨーダイン社内部のクライアントからpingを連続実行
+    And インターネット上の PC
+    When インターネット上の PC にヨーヨーダイン社内部のクライアントから ping を連続実行
     And 10 秒待つ
     And FW1-L2SW1間リンク障害回復
-    Then Internet上のPCにヨーヨーダイン社内部のクライアントからのpingによる疎通が 10 秒以内に復帰
+    Then インターネット上の PC にヨーヨーダイン社内部のクライアントからの ping による疎通が 10 秒以内に復帰
     And FWの主系が Active 、予備系が Passive になっていること
 
