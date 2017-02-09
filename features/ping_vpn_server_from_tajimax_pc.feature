@@ -9,4 +9,3 @@ Feature: タジマックス工業の PC から VPN サーバへの疎通確認
     And ヨーヨーダイン社の VPN サーバ
     When VPN サーバにタジマックス工業の PC から ping で疎通確認
     Then ping で疎通成功
-
