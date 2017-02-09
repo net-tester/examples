@@ -58,6 +58,14 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
+  factory :user_pc, class: NetTester::Netns do
+    name 'user_pc'
+    internal_network_host
+    ip_address '10.10.10.4'
+    physical_port_number 8
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
   factory :internal_pc, class: NetTester::Netns do
     name 'internal_pc'
     internal_network_host
@@ -92,7 +100,8 @@ FactoryGirl.define do
     name 'vpn_server'
     dmz_network
     ip_address '10.10.0.11'
-    physical_port_number 9
+    physical_port_number 10
+    vlan_id 2023
     mac_address {Faker::Internet.mac_address('00')}
   end
 
