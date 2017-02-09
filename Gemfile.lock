@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/net-tester/net-tester.git
-  revision: 08274a729a42b8cbd1e91e1749c8f0b3cd285dfc
+  revision: 564c0efdce412a69abcce8b76d9ff59836760895
   branch: develop
   specs:
     net_tester (0.2.0)
