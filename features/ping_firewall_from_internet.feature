@@ -1,11 +1,11 @@
 @demo
-Feature: Internetからヨーヨーダイン社のRouterへの疎通確認
+Feature: インターネットからヨーヨーダイン社のRouterへの疎通確認
 
   ヨーヨーダイン社の管理者として、
-  Internetからヨーヨーダイン社のFirewallへの疎通確認をしたい
+  インターネットからヨーヨーダイン社のFirewallへの疎通確認をしたい
   なぜならインターネットからのアクセスはFirewallを経由するから
 
-  Scenario: Internetからヨーヨーダイン社のFirewallへの疎通確認
-    Given Internet上のPC
-    When FirewallにInternet上のPCからpingで疎通確認
-    Then ping で疎通成功
+  Scenario: インターネットからヨーヨーダイン社のFirewallへの疎通確認
+    Given インターネット上の PC
+    When Firewall にインターネット上の PC から ping
+    Then ping 成功
