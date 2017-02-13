@@ -17,9 +17,11 @@ When(/^開発者 PC から社内 Git リポジトリへアクセス$/) do
   end
 end
 
-When(/^ヨーヨーダイン社のDMZ内部のVPNアドレスプールからヨーヨーダイン社内 Git リポジトリへアクセス$/) do
+When(/^資産管理サーバへ git$/) do
   cd('.') do
-    @vpn_address_pool.exec "nc -v #{@git_server.ip_address} 11000 > log/nc_git.log"
+    @async_asset_server = AsyncExecutor.new(host: @asset_server, result_file: 'log/server.log')
+    @async_asset_server.exec "bash -c 'echo AccessOK | nc -l 11000'"    
+    @vpn_address_pool.exec "nc -v #{@asset_server.ip_address} 11000 > log/access.log"
   end
 end
 
