@@ -27,7 +27,7 @@ Given(/^ヨーヨーダイン社の VPN サーバ$/) do
   @vpn_server = Netns.new(attributes_for(:vpn_server))
 end
 
-Given(/^ヨーヨーダイン社のDMZ内部のVPNアドレスプール$/) do
+Given(/^ヨーヨーダイン社の DMZ の VPN アドレスプール$/) do
   @vpn_address_pool = Netns.new(attributes_for(:vpn_address_pool))
 end
 

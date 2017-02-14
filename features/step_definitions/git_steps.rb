@@ -17,6 +17,14 @@ When(/^開発者 PC から社内 Git リポジトリへアクセス$/) do
   end
 end
 
+When(/^資産管理サーバへ git$/) do
+  cd('.') do
+    @async_asset_server = AsyncExecutor.new(host: @asset_server, result_file: 'log/server.log')
+    @async_asset_server.exec "bash -c 'echo AccessOK | nc -l 11000'"    
+    @vpn_address_pool.exec "nc -v #{@asset_server.ip_address} 11000 > log/access.log"
+  end
+end
+
 Then(/^社内 Git リポジトリにアクセス成功$/) do
   step %(the file "log/nc_git.log" should contain "OK")
 end
