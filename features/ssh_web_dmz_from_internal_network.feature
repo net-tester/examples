@@ -1,23 +1,23 @@
-Feature: ヨーヨーダイン社内部からDMZ内のサーバにログイン
+Feature: ヨーヨーダイン社内部から DMZ のサーバにログイン
 
   ヨーヨーダイン社の管理者として、
-  ヨーヨーダイン社内部からDMZ内のサーバにsshクライアントおよびWebブラウザでログインしたい
-  なぜならメンテナンス業務に必要だから
+  ヨーヨーダイン社内部から DMZ のサーバに ssh コマンドや Web ブラウザ経由でログインしたい
+  なぜなら VPN サーバをメンテナンスするから
 
-  Scenario: ヨーヨーダイン社からDMZ内のサーバにsshでログイン
-    Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
-    When ヨーヨーダイン社からDMZ内のサーバにsshでログイン
-    Then ヨーヨーダイン社からDMZ内のサーバにsshでログイン成功
+  Scenario: ヨーヨーダイン社内部の PC から DMZ のサーバに ssh でログイン
+    Given ヨーヨーダイン社内部のユーザ PC
+    And ヨーヨーダイン社の DMZ のサーバ
+    When DMZ のサーバに ssh でログイン
+    Then ログイン成功
 
-  Scenario: ヨーヨーダイン社からDMZ内のサーバにWebブラウザからhttpでログイン
-    Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
-    When ヨーヨーダイン社からDMZ内のサーバにWebブラウザからhttpでログイン
-    Then ヨーヨーダイン社からDMZ内のサーバにWebブラウザからログイン成功
+  Scenario: ヨーヨーダイン社内部の PC から DMZ のサーバに http でログイン
+    Given ヨーヨーダイン社内部のユーザ PC
+    And ヨーヨーダイン社の DMZ のサーバ
+    When DMZ のサーバ に Web ブラウザから http でログイン
+    Then ログイン成功
 
-  Scenario: ヨーヨーダイン社からDMZ内のサーバにWebブラウザからhttpsでログイン
-    Given ヨーヨーダイン社内部のクライアント
-    And ヨーヨーダイン社のDMZ内部のサーバ
-    When ヨーヨーダイン社からDMZ内のサーバにWebブラウザからhttpsでログイン
-    Then ヨーヨーダイン社からDMZ内のサーバにWebブラウザからログイン成功
+  Scenario: ヨーヨーダイン社内部の PC から DMZ のサーバに https でログイン
+    Given ヨーヨーダイン社内部のユーザ PC
+    And ヨーヨーダイン社の DMZ のサーバ
+    When DMZ のサーバ に Web ブラウザから https でログイン
+    Then ログイン成功
