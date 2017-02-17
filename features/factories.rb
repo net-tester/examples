@@ -143,6 +143,14 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
+  factory :internet_ntp_server, class: NetTester::Netns do
+    name 'internet_ntp'
+    internet_network
+    ip_address '198.51.100.4'
+    physical_port_number 3
+    mac_address {Faker::Internet.mac_address('00')}
+  end
+
   factory :tajimax_pc, class: NetTester::Netns do
     name 'tajimax_pc'
     internet_network
