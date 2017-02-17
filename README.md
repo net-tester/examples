@@ -35,6 +35,7 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 * [Google 検索](https://github.com/net-tester/examples/blob/develop/features/google.feature)
 * [社内 DNS サーバで名前解決](https://github.com/net-tester/examples/blob/develop/features/dns_dmz_from_internal_network.feature)
 * [上位 DNS サーバで名前解決](https://github.com/net-tester/examples/blob/develop/features/dns_internet_from_dmz.feature)
+* [DMZ内のサーバからDMZ内のDNSサーバでインターネット上のサーバの名前解決](https://github.com/net-tester/examples/blob/develop/features/dns_dmz.feature)
 * [pingで社内からDMZ内のDNSサーバへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_dmz_dns_from_internal_network.feature)
 * [pingで社内からDMZへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_dmz_from_internal_network.feature)
 * [pingでDMZから社内へ疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_internal_network_from_dmz.feature)
