@@ -42,6 +42,7 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 * [sshで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_test_environment_server_from_internal_network.feature)
 * [sshで社内からDMZ内のDNSサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_dmz_dns_from_internal_network.feature)
 * [sshクライアントとWebブラウザで社内からDMZのVPNサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_web_dmz_vpn_from_internal_network.feature)
+* [sshクライアントとWebブラウザで社内からDMZのサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/ssh_web_dmz_from_internal_network.feature)
 * [pingでインターネットからルータへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_router_from_internet.feature)
 * [pingでインターネットからファイアウォールへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_firewall_from_internet.feature)
 * [pingで社内からインターネットへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/ping_internet_from_internal_network.feature)
