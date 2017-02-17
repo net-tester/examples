@@ -7,11 +7,11 @@ Feature: DMZ のサーバのパッケージアップデート
   Scenario: DMZ のサーバのパッケージを http でアップデート
     Given ヨーヨーダイン社の DMZ のサーバ
     And インターネット上のサーバ
-    When http でパッケージアップデートの実行
+    When http でパッケージアップデートを実行
     Then アップデート成功
 
   Scenario: DMZ のサーバのパッケージを https でアップデート
     Given ヨーヨーダイン社の DMZ のサーバ
     And インターネット上のサーバ
-    When https でパッケージアップデートの実行
+    When https でパッケージアップデートを実行
     Then アップデート成功

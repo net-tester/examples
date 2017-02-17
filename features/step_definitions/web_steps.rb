@@ -32,7 +32,7 @@ When(/^DMZ のサーバ に Web ブラウザから https でログイン$/) do
   end
 end
 
-When(/^http でパッケージアップデートの実行$/) do
+When(/^http でパッケージアップデートを実行$/) do
   cd('.') do
     @async_internet_server = AsyncExecutor.new(host: @internet_server, result_file: 'log/server.log')
     @async_internet_server.exec "bash -c 'echo -e \"HTTP/1.1 200 OK\\n\\nUpdateOK\" | nc -l 80'"
@@ -40,7 +40,7 @@ When(/^http でパッケージアップデートの実行$/) do
   end
 end
 
-When(/^https でパッケージアップデートの実行$/) do
+When(/^https でパッケージアップデートを実行$/) do
   cd('.') do
     system "sudo yes '' | sudo openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout server.key -out server.crt -days 30"
     system "sudo ip netns exec internet_svr echo '<title>UpdateOK</title>' | sudo ip netns exec internet_svr openssl s_server -cert server.crt -key server.key -accept 443 > log/server.log &"
