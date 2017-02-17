@@ -39,6 +39,10 @@ Given(/^インターネット上の DNS サーバ$/) do
   @internet_dns_server = Netns.new(attributes_for(:internet_dns))
 end
 
+Given(/^インターネット上の NTP サーバ$/) do
+  @internet_ntp_server = Netns.new(attributes_for(:internet_ntp_server))
+end
+
 Given(/^インターネット上のサーバ$/) do
   @internet_server = Netns.new(attributes_for(:internet_server))
 end
