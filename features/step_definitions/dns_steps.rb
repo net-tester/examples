@@ -14,7 +14,7 @@ When(/^ヨーヨーダイン社のDMZ内のDNSサーバでインターネット�
   end
 end
 
-When(/^インターネット上のサーバの名前解決$/) do
+When(/^dig コマンドで "www.google.com" の IP アドレスを調べる$/) do
   cd('.') do
     @dns_server.exec "mkdir -p /etc/netns/#{@dns_server.name}"
     @dns_server.exec "echo '172.217.25.196 www.google.com' | sudo tee /etc/netns/#{@dns_server.name}/hosts"
