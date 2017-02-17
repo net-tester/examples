@@ -14,6 +14,18 @@ When(/^ヨーヨーダイン社のDMZ内のDNSサーバでインターネット�
   end
 end
 
+When(/^dig コマンドで "www.google.com" の IP アドレスを調べる$/) do
+  cd('.') do
+    @dns_server.exec "mkdir -p /etc/netns/#{@dns_server.name}"
+    @dns_server.exec "echo '172.217.25.196 www.google.com' | sudo tee /etc/netns/#{@dns_server.name}/hosts"
+    @dns_server.exec "echo 'port=53' | sudo tee dnsmasq.conf"
+    @dns_server.exec "echo 'expand-hosts' | sudo tee -a dnsmasq.conf"
+    @async_dns_server = AsyncExecutor.new(host: @dns_server, result_file: 'log/dns.log')
+    @async_dns_server.exec "dnsmasq -C dnsmasq.conf"
+    @dmz_server.exec "dig @#{@dns_server.ip_address} www.google.com A > log/dns.log"
+  end
+end
+
 When(/^インターネット上のDNSサーバでインターネット上のサーバの名前解決$/) do
   cd('.') do
     @internet_dns_server.exec "mkdir -p /etc/netns/#{@internet_dns_server.name}"
