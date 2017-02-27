@@ -3,18 +3,8 @@ task default: :cucumber
 begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new do |task|
-    task.cucumber_opts = '--tags ~@wip'
-  end
-rescue LoadError
-  task :cucumber do
-    $stderr.puts 'Cucumber is disabled'
-  end
-end
-
-begin
-  require 'cucumber/rake/task'
-  Cucumber::Rake::Task.new(:demo) do |task|
-    task.cucumber_opts = '--tags @demo'
+    tags = ENV.fetch('TAGS', '@@static,@dynamic')
+    task.cucumber_opts = "--tags '~@wip' --tags '#{tags}'"
   end
 rescue LoadError
   task :cucumber do

@@ -1,3 +1,4 @@
+@internet @static
 Feature: NTP で時刻を同期
 
   ヨーヨーダイン社の開発者として、
