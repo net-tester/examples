@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: ヨーヨーダイン社内部からDNSサーバへの疎通確認
 
   ヨーヨーダイン社の管理者として、

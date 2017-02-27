@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: DMZ から インターネット上のサーバへの ping
 
   ヨーヨーダイン社の管理者として、

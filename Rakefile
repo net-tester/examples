@@ -3,7 +3,7 @@ task default: :cucumber
 begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new do |task|
-    tags = ENV.fetch('TAGS', '@internet,@nointernet,@static,@dynamic')
+    tags = ENV.fetch('TAGS', '@@static,@dynamic')
     task.cucumber_opts = "--tags '~@wip' --tags '#{tags}'"
   end
 rescue LoadError

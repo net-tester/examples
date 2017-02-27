@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: 社内テスト環境設定
 
   ヨーヨーダイン社の開発者として、

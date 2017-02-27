@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: ヨーヨーダイン社からテスト環境サーバへのsshの実行
 
   ヨーヨーダイン社の管理者として、

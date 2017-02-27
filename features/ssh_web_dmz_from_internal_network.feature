@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: ヨーヨーダイン社内部から DMZ のサーバにログイン
 
   ヨーヨーダイン社の管理者として、

@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: ヨーヨーダイン社の DMZ のサーバからヨーヨーダイン社内部へ ping
 
   ヨーヨーダイン社の管理者として、

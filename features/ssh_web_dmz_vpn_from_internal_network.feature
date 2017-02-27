@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: ヨーヨーダイン社内部から VPN サーバにログイン
 
   ヨーヨーダイン社の管理者として、

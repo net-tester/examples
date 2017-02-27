@@ -1,4 +1,4 @@
-@internet @notinternet @dynamic
+@dynamic
 Feature: FW1-L2SWEX間リンク障害試験
   ヨーヨーダイン社およびタジマックス通信工業社社員として
   ヨーヨーダイン社FWに単発の障害が起きたときでも開発環境にアクセスしたい

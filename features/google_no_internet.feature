@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: Google 検索
 
   ヨーヨーダイン社の開発者として、

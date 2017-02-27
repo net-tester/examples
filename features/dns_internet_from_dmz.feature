@@ -1,4 +1,4 @@
-@internet @nointernet @static
+@static
 Feature: DNS で名前解決
 
   ヨーヨーダイン社の管理者として、
