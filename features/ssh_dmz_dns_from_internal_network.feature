@@ -1,3 +1,4 @@
+@static
 Feature: ヨーヨーダイン社内部の PC から DMZ の DNS サーバに ssh
 
   ヨーヨーダイン社の管理者として、

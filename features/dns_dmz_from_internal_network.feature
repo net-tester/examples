@@ -1,3 +1,4 @@
+@static
 Feature: DNS で名前解決
 
   ヨーヨーダイン社の開発者として、

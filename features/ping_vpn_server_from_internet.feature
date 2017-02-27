@@ -1,3 +1,4 @@
+@static
 Feature: インターネットから VPN サーバへ ping
 
   ヨーヨーダイン社の管理者として、
