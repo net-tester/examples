@@ -1,4 +1,4 @@
-@demo
+@internet @notinternet @static
 Feature: 社内 Git サービス
 
   ヨーヨーダイン社の開発者として、

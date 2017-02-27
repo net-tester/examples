@@ -1,3 +1,4 @@
+@internet @nointernet @static
 Feature: タジマックス工業のPCからSSLVPNサーバへのログイン
 
   ヨーヨーダイン社の管理者として、

@@ -1,3 +1,4 @@
+@internet @notinternet @static
 Feature: 社内テスト環境の Web コンソールでテスト実施
 
   ヨーヨーダイン社の開発者として、

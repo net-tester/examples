@@ -1,3 +1,4 @@
+@internet @nointernet @static
 Feature: NTP で時刻を同期
 
   ヨーヨーダイン社の管理者として、

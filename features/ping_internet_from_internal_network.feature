@@ -1,3 +1,4 @@
+@internet @nointernet @static
 Feature: ヨーヨーダイン社内部からインターネット上のサーバへの疎通確認
 
   ヨーヨーダイン社の管理者として、

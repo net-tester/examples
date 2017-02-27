@@ -1,3 +1,4 @@
+@internet @nointernet @static
 Feature: タジマックス工業の PC から VPN サーバへの疎通確認
 
   ヨーヨーダイン社の管理者として、

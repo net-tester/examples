@@ -1,4 +1,4 @@
-@demo
+@internet @nointernet @static
 Feature: ヨーヨーダイン社から資産管理サーバにsshでログイン
 
   ヨーヨーダイン社の管理者として、

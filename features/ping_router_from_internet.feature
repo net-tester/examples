@@ -1,4 +1,4 @@
-@demo
+@internet @nointernet @static
 Feature: インターネットからヨーヨーダイン社のRouterへの疎通確認
 
   ヨーヨーダイン社の管理者として、

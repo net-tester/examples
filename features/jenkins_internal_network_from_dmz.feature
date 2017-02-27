@@ -1,3 +1,4 @@
+@internet @nointernet @static
 Feature: 社内テスト環境の Web コンソールへの接続確認
 
   ヨーヨーダイン社の管理者として、

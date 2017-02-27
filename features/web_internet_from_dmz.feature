@@ -1,3 +1,4 @@
+@internet @nointernet @static
 Feature: DMZ のサーバのパッケージアップデート
 
   ヨーヨーダイン社の管理者として、
