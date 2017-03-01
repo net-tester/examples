@@ -2,9 +2,10 @@
 
 Given(/^ヨーヨーダイン社 の Git リポジトリサーバ$/) do
   @git_server = Netns.new(attributes_for(:git_server))
-  # FIXME: @git_server.exec "bash -c 'echo OK | nc -l 11000 &'"
-  Thread.start { @git_server.exec "bash -c 'echo OK | nc -l 11000'" }
-  sleep 3
+  cd('.') do
+    @async_git_server = AsyncExecutor.new(host: @git_server, result_file: 'log/git_server.log')
+    @async_git_server.exec "bash -c 'echo OK | nc -l 11000'"
+  end
 end
 
 Given(/^Git クライアントとなる開発者 PC$/) do

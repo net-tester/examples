@@ -2,7 +2,7 @@
 
 # rubocop:disable Metrics/ClassLength
 class AsyncExecutor
-  def initialize(host:, result_file:, stderr_file:, initial_wait: 3, process_wait: 1)
+  def initialize(host:, result_file:, stderr_file: nil, initial_wait: 3, process_wait: 1)
     @host = host
     @result_file = result_file
     @stderr_file = stderr_file
