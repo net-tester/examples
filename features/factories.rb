@@ -26,16 +26,16 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :git_server, class: NetTester::Netns do
-    name 'git_server'
+  factory :git_host, class: NetTester::Netns do
+    name 'git_host'
     internal_network_host
     ip_address '10.10.10.1'
     physical_port_number 4
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :test_server, class: NetTester::Netns do
-    name 'test_server'
+  factory :test_host, class: NetTester::Netns do
+    name 'test_host'
     internal_network_host
     ip_address '10.10.10.2'
     physical_port_number 4
@@ -80,24 +80,24 @@ FactoryGirl.define do
     virtual_port_number
   end
 
-  factory :dmz_server, class: NetTester::Netns do
-    name 'dmz_server'
+  factory :dmz_host, class: NetTester::Netns do
+    name 'dmz_host'
     dmz_network
     ip_address '10.10.0.100'
     physical_port_number 9
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :dns_server, class: NetTester::Netns do
-    name 'dns_server'
+  factory :dns_host, class: NetTester::Netns do
+    name 'dns_host'
     dmz_network
     ip_address '10.10.0.10'
     physical_port_number 5
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :vpn_server, class: NetTester::Netns do
-    name 'vpn_server'
+  factory :vpn_host, class: NetTester::Netns do
+    name 'vpn_host'
     dmz_network
     ip_address '10.10.0.11'
     physical_port_number 10
@@ -127,7 +127,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :internet_dns, class: NetTester::Netns do
+  factory :internet_dns_host, class: NetTester::Netns do
     name 'internet_dns'
     internet_network
     ip_address '198.51.100.2'
@@ -135,7 +135,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :internet_server, class: NetTester::Netns do
+  factory :internet_host, class: NetTester::Netns do
     name 'internet_svr'
     internet_network
     ip_address '198.51.100.3'
@@ -143,7 +143,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :internet_ntp_server, class: NetTester::Netns do
+  factory :internet_ntp_host, class: NetTester::Netns do
     name 'internet_ntp'
     internet_network
     ip_address '198.51.100.4'

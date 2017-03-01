@@ -3,10 +3,10 @@ Given(/^ヨーヨーダイン社のDMZ内部のVPNサーバとVPNプロセス$/)
   step %(ヨーヨーダイン社のDMZ内部のVPNサーバ)
   cd('.') do
     system "echo '<title>YoyodyneVPN</title>' > login.html"
-    @http_server = AsyncExecutor.new(host: @vpn_server, result_file: 'log/http_server.stdout', stderr_file: 'log/http_server.stderr')
-    @http_server.exec("ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => \"./\", :Port => 80).start'")
-    @https_server = AsyncExecutor.new(host: @vpn_server, result_file: 'log/https_server.stdout', stderr_file: 'log/https_server.stderr')
-    @http_server.exec("ruby -rwebrick -rwebrick/https -e 'WEBrick::HTTPServer.new(:DocumentRoot => \"./\", :Port => 443, :SSLEnable => true, :SSLCertName => [[\"CN\", WEBrick::Utils::getservername]] ).start'")
+    @http_service = AsyncExecutor.new(host: @vpn_host, result_file: 'log/http_host.stdout', stderr_file: 'log/http_host.stderr')
+    @http_service.exec("ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => \"./\", :Port => 80).start'")
+    @https_service = AsyncExecutor.new(host: @vpn_host, result_file: 'log/https_host.stdout', stderr_file: 'log/https_host.stderr')
+    @http_service.exec("ruby -rwebrick -rwebrick/https -e 'WEBrick::HTTPServer.new(:DocumentRoot => \"./\", :Port => 443, :SSLEnable => true, :SSLCertName => [[\"CN\", WEBrick::Utils::getservername]] ).start'")
     sleep 3;
   end
 end
