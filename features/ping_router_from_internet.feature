@@ -7,5 +7,6 @@ Feature: インターネットからヨーヨーダイン社のRouterへの疎�
 
   Scenario: インターネットからヨーヨーダイン社のRouterへの疎通確認
     Given インターネット上の PC
-    When ヨーヨーダイン社の Router にインターネット上の PC から ping
+    When インターネット上の PC にログイン
+    And Router に ping
     Then ping 成功

@@ -7,6 +7,7 @@ Feature: ヨーヨーダイン社の DMZ のサーバからヨーヨーダイン
 
   Scenario: DMZからヨーヨーダイン社内部へ ping
     Given ヨーヨーダイン社の DMZ のサーバ
-    And ヨーヨーダイン社内部のクライアント
-    When ヨーヨーダイン社内部のクライアントにDMZからpingで疎通確認
+    And ヨーヨーダイン社内部のユーザ PC
+    When ヨーヨーダイン社の DMZ のサーバにログイン
+    And ヨーヨーダイン社内部のユーザ PC に ping
     Then ping 成功

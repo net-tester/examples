@@ -8,5 +8,6 @@ Feature: DMZ から インターネット上のサーバへの ping
   Scenario: DMZ からインターネット上のサーバへの ping
     Given ヨーヨーダイン社の DMZ のサーバ
     And インターネット上のサーバ
-    When インターネット上のサーバに DMZ のサーバから ping
+    When ヨーヨーダイン社の DMZ のサーバにログイン
+    And インターネット上のサーバに ping
     Then ping 成功

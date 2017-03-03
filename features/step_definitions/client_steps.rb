@@ -14,3 +14,11 @@ end
 When(/^ヨーヨーダイン社の DMZ の VPN アドレスプールにログイン$/) do
   @src_host = @vpn_address_pool
 end
+
+When(/^インターネット上の PC にログイン$/) do
+  @src_host = @internet_pc
+end
+
+When(/^タジマックス工業の PC にログイン$/) do
+  @src_host = @tajimax_pc
+end

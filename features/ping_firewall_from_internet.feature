@@ -7,5 +7,6 @@ Feature: インターネットからヨーヨーダイン社のRouterへの疎�
 
   Scenario: インターネットからヨーヨーダイン社のFirewallへの疎通確認
     Given インターネット上の PC
-    When Firewall にインターネット上の PC から ping
+    When インターネット上の PC にログイン 
+    And Firewall に ping
     Then ping 成功
