@@ -1,19 +1,19 @@
 # coding: utf-8
 When(/^ヨーヨーダイン社内部のクライアントにDMZからpingで疎通確認$/) do
   cd('.') do
-    @dmz_server.exec "ping #{@internal_pc.ip_address} -c 4 > log/ping.log"
+    @dmz_host.exec "ping #{@internal_pc.ip_address} -c 4 > log/ping.log"
   end
 end
 
 When(/^DNSサーバにヨーヨーダイン社PCからpingで疎通確認$/) do
   cd('.') do
-    @internal_pc.exec "ping #{@dns_server.ip_address} -c 4 > log/ping.log"
+    @internal_pc.exec "ping #{@dns_host.ip_address} -c 4 > log/ping.log"
   end
 end
 
 When(/^DMZにヨーヨーダイン社のPCからpingで疎通確認$/) do
   cd('.') do
-    @internal_pc.exec "ping #{@dmz_server.ip_address} -c 4 > log/ping.log"
+    @internal_pc.exec "ping #{@dmz_host.ip_address} -c 4 > log/ping.log"
   end
 end
 
@@ -37,13 +37,13 @@ end
 
 When(/^インターネット上のサーバにヨーヨーダイン社の PC から ping$/) do
   cd('.') do
-    @internal_pc.exec "ping #{@internet_server.ip_address} -c 4 > log/ping.log"
+    @internal_pc.exec "ping #{@internet_host.ip_address} -c 4 > log/ping.log"
   end
 end
 
 When(/^インターネット上のサーバに DMZ のサーバから ping$/) do
   cd('.') do
-    @dmz_server.exec "ping #{@internet_server.ip_address} -c 4 > log/ping.log"
+    @dmz_host.exec "ping #{@internet_host.ip_address} -c 4 > log/ping.log"
   end
 end
 

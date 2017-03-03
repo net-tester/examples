@@ -10,7 +10,7 @@ end
 When(/^DMZ内部のサーバにヨーヨーダイン社内部のクライアントからpingを連続実行$/) do
   cd('.') do
     @ping_client = AsyncExecutor.new(host: @internal_pc, result_file: 'log/ping_b.log')
-    @ping_client.exec("ping -D -i 0.1 -c 300 #{@dmz_server.ip_address}")
+    @ping_client.exec("ping -D -i 0.1 -c 300 #{@dmz_host.ip_address}")
   end
 end
 
