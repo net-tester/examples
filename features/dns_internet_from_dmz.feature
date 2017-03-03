@@ -6,7 +6,8 @@ Feature: DNS で名前解決
   なぜなら名前解決ができないと、情報検索などで IP アドレスを指定しなければならず不便だから
 
   Scenario: DNS サーバで名前解決
-    Given ヨーヨーダイン社のDMZ内のDNSサーバ
+    Given ヨーヨーダイン社の DMZ の DNS サーバ
     And インターネット上の DNS サーバ
-    When インターネット上のDNSサーバでインターネット上のサーバの名前解決
+    When ヨーヨーダイン社の DMZ の DNS サーバにログイン
+    And インターネット上の DNS サーバに dig コマンドで "www.google.com" の IP アドレスを問い合わせる
     Then 名前解決に成功
