@@ -6,7 +6,8 @@ Feature: 社内 Git サービス
   なぜならソースコードを社内 Git サーバで管理しているから
 
   Scenario: 社内 Git サービスへアクセス
-    Given ヨーヨーダイン社 の Git リポジトリサーバ
-    And Git クライアントとなる開発者 PC
-    When 開発者 PC から社内 Git リポジトリへアクセス
-    Then 社内 Git リポジトリにアクセス成功
+    Given ヨーヨーダイン社内部のユーザ PC
+    And ヨーヨーダイン社内部の資産管理サーバ
+    When ヨーヨーダイン社内部のユーザ PC にログイン
+    And 資産管理サーバへ git
+    Then アクセス成功
