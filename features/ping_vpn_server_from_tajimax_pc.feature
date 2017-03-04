@@ -8,5 +8,6 @@ Feature: タジマックス工業の PC から VPN サーバへの疎通確認
   Scenario: タジマックス工業の PC から VPN サーバに疎通確認
     Given タジマックス工業の PC
     And ヨーヨーダイン社の VPN サーバ
-    When VPN サーバにタジマックス工業の PC から ping で疎通確認
-    Then ping で疎通成功
+    When タジマックス工業の PC にログイン
+    And ヨーヨーダイン社の VPN サーバに ping
+    Then ping 成功

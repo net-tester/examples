@@ -8,5 +8,6 @@ Feature: インターネットから VPN サーバへ ping
   Scenario: インターネットから VPN サーバへ ping
     Given インターネット上の PC
     And ヨーヨーダイン社の VPN サーバ
-    When VPN サーバにインターネット上の PC から ping
+    When インターネット上の PC にログイン
+    And ヨーヨーダイン社の VPN サーバに ping
     Then ping 成功
