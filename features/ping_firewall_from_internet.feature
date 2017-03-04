@@ -1,11 +1,12 @@
 @static
-Feature: インターネットからヨーヨーダイン社のRouterへの疎通確認
+Feature: インターネットからヨーヨーダイン社の Firewall への疎通確認
 
   ヨーヨーダイン社の管理者として、
-  インターネットからヨーヨーダイン社のFirewallへの疎通確認をしたい
-  なぜならインターネットからのアクセスはFirewallを経由するから
+  インターネットからヨーヨーダイン社の Firewall への疎通確認をしたい
+  なぜならインターネットからのアクセスは Firewall を経由するから
 
-  Scenario: インターネットからヨーヨーダイン社のFirewallへの疎通確認
+  Scenario: インターネットからヨーヨーダイン社の Firewall への疎通確認
     Given インターネット上の PC
-    When Firewall にインターネット上の PC から ping
+    When インターネット上の PC にログイン 
+    And Firewall に ping
     Then ping 成功
