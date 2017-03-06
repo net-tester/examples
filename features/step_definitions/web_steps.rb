@@ -33,20 +33,20 @@ When(/^ヨーヨーダイン社の DMZ のサーバに Web ブラウザから ht
   end
 end
 
-When(/^http でパッケージアップデートを実行$/) do
+When(/^http でインターネット上のサーバからパッケージアップデートを実行$/) do
   cd('.') do
     @http_service = AsyncExecutor.new(host: @internet_host, result_file: 'log/internet_host.log')
     @http_service.exec "bash -c 'echo -e \"HTTP/1.1 200 OK\\n\\nUpdateOK\" | nc -l 80'"
-    @dmz_host.exec "curl http://#{@internet_host.ip_address}/ > log/update.log"
+    @src_host.exec "curl http://#{@internet_host.ip_address}/ > log/update.log"
   end
 end
 
-When(/^https でパッケージアップデートを実行$/) do
+When(/^https でインターネット上のサーバからパッケージアップデートを実行$/) do
   cd('.') do
     system "sudo yes '' | sudo openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout server.key -out server.crt -days 30"
-    system "sudo ip netns exec internet_svr echo '<title>UpdateOK</title>' | sudo ip netns exec internet_svr openssl s_server -cert server.crt -key server.key -accept 443 > log/internet_host.log &"
+    system "sudo ip netns exec #{@internet_host.name} echo '<title>UpdateOK</title>' | sudo ip netns exec #{@internet_host.name} openssl s_server -cert server.crt -key server.key -accept 443 > log/internet_host.log &"
     sleep 2
-    @dmz_host.exec "wget --no-check-certificate https://#{@internet_host.ip_address}/ -O log/update.log"
+    @src_host.exec "wget --no-check-certificate https://#{@internet_host.ip_address}/ -O log/update.log"
   end
 end
 
