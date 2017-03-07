@@ -1,24 +1,17 @@
 # coding: utf-8
-Given(/^Web ブラウザを起動する開発者 PC$/) do
-  @browser_pc = Netns.new(attributes_for(:browser_pc))
-end
-
-Given(/^Google のページを起動するWebサーバ$/) do
-  @google_pc = Netns.new(attributes_for(:google_pc))
-  cd('.') do
-    system "sudo mkdir -p /etc/netns/browser_pc"
-    system "sudo echo '10.10.10.4 google.com' > /etc/netns/browser_pc/hosts"
-    system "sudo yes '' | sudo openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout server.key -out server.crt -days 30"
-    system "sudo ip netns exec google_pc echo '<title>Google</title>' | sudo ip netns exec google_pc openssl s_server -cert server.crt -key server.key -accept 443 > log/google_pc.log &"
-  end
-end
-
 When(/^ブラウザで Google のページを開く$/) do
   cd('.') do
-    @browser_pc.exec 'curl -L --insecure  https://google.com/ | iconv -f SHIFT-JIS -t UTF8 > log/google.log'
+    @src_host.exec 'curl -L --insecure  https://www.google.com/ | iconv -f SHIFT-JIS -t UTF8 > log/google.log'
   end
 end
 
-Then(/^Google のトップページが表示$/) do
-  step %(the file "log/google.log" should contain "<title>Google</title>")
+When(/^ブラウザでインターネット上のサーバの Google のページを開く$/) do
+  cd('.') do
+    system "echo '<title>Google</title>' > index.html"
+    @https_service = AsyncExecutor.new(host: @internet_host, result_file: 'log/google_host.stdout', stderr_file: 'log/google_host.stderr')
+    @https_service.exec("ruby -rwebrick -rwebrick/https -e 'WEBrick::HTTPServer.new(:DocumentRoot => \"./\", :Port => 443, :SSLEnable => true, :SSLCertName => [[\"CN\", WEBrick::Utils::getservername]] ).start'")
+    system "sudo mkdir -p /etc/netns/#{@src_host.name}"
+    system "echo '198.51.100.3 www.google.com' | sudo tee /etc/netns/#{@src_host.name}/hosts >/dev/null"
+    @src_host.exec 'curl -L --insecure  https://www.google.com/ | iconv -f SHIFT-JIS -t UTF8 > log/google.log'
+  end
 end
