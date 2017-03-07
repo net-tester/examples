@@ -6,6 +6,7 @@ Feature: Google 検索
   なぜなら開発するときによく調べものをするから
 
   Scenario: Web ブラウザで Google を開く
-    Given Web ブラウザを起動する開発者 PC
-    When ブラウザで Google のページを開く
+    Given ヨーヨーダイン社内部のユーザ PC
+    When ヨーヨーダイン社内部のユーザ PC にログイン
+    And ブラウザで Google のページを開く
     Then Google のトップページが表示
