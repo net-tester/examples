@@ -23,7 +23,7 @@ Feature: FW1-L2SW1間リンク障害試験
     And FWの主系が Active 、予備系が Passive になっていること
 
   Scenario: リンクダウンの発生後のFailover確認[b]
-    Given ヨーヨーダイン社のDMZ内部のVPNアドレスプール
+    Given ヨーヨーダイン社の DMZ の VPN アドレスプール
     And ヨーヨーダイン社内部の資産管理サーバ
     When ヨーヨーダイン社内部の資産管理サーバにヨーヨーダイン社のDMZ内部のVPNアドレスプールからTCP接続を開始
     And 10 秒待つ
@@ -32,7 +32,7 @@ Feature: FW1-L2SW1間リンク障害試験
     And FWの主系が Passive 、予備系が Active になっていること
 
   Scenario: リンクダウンの発生後のFailback確認[b]
-    Given ヨーヨーダイン社のDMZ内部のVPNアドレスプール
+    Given ヨーヨーダイン社の DMZ の VPN アドレスプール
     And ヨーヨーダイン社内部の資産管理サーバ
     When ヨーヨーダイン社内部の資産管理サーバにヨーヨーダイン社のDMZ内部のVPNアドレスプールからTCP接続を開始
     And 10 秒待つ
