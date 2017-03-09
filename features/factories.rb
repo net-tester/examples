@@ -10,27 +10,12 @@ FactoryGirl.define do
     virtual_port_number
   end
 
-  factory :ntp_client, class: NetTester::Netns do
-    name 'ntp_client'
-    internal_network_host
-    ip_address '10.10.10.3'
-    physical_port_number 8
-    mac_address {Faker::Internet.mac_address('00')}
-  end
-
-  factory :git_client, class: NetTester::Netns do
-    name 'git_client'
-    internal_network_host
-    ip_address '10.10.10.3'
-    physical_port_number 8
-    mac_address {Faker::Internet.mac_address('00')}
-  end
-
   factory :git_host, class: NetTester::Netns do
     name 'git_host'
     internal_network_host
     ip_address '10.10.10.1'
-    physical_port_number 4
+    physical_port_number 6
+    vlan_id 2025
     mac_address {Faker::Internet.mac_address('00')}
   end
 
@@ -42,32 +27,8 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :browser_pc, class: NetTester::Netns do
-    name 'browser_pc'
-    internal_network_host
-    ip_address '10.10.10.3'
-    physical_port_number 8
-    mac_address {Faker::Internet.mac_address('00')}
-  end
-
-  factory :google_pc, class: NetTester::Netns do
-    name 'google_pc'
-    internal_network_host
-    ip_address '10.10.10.4'
-    physical_port_number 3
-    mac_address {Faker::Internet.mac_address('00')}
-  end
-
   factory :user_pc, class: NetTester::Netns do
     name 'user_pc'
-    internal_network_host
-    ip_address '10.10.10.4'
-    physical_port_number 8
-    mac_address {Faker::Internet.mac_address('00')}
-  end
-
-  factory :internal_pc, class: NetTester::Netns do
-    name 'internal_pc'
     internal_network_host
     ip_address '10.10.10.4'
     physical_port_number 8
@@ -84,7 +45,8 @@ FactoryGirl.define do
     name 'dmz_host'
     dmz_network
     ip_address '10.10.0.100'
-    physical_port_number 9
+    physical_port_number 10
+    vlan_id 2023
     mac_address {Faker::Internet.mac_address('00')}
   end
 
@@ -109,7 +71,8 @@ FactoryGirl.define do
     name 'vpn_addrpool'
     dmz_network
     ip_address '10.10.0.130'
-    physical_port_number 9
+    physical_port_number 10
+    vlan_id 2023
     mac_address {Faker::Internet.mac_address('00')}
   end
 
