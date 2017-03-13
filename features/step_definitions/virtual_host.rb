@@ -43,12 +43,12 @@ Given(/^インターネット上のサーバ$/) do
   @internet_host = Netns.new(attributes_for(:internet_host))
 end
 
-Given(/^タジマックス工業の PC$/) do
+Given(/^タジマックス社の PC$/) do
   @tajimax_pc = Netns.new(attributes_for(:tajimax_pc))
 end
 
-Given(/^タジマックス工業のPCをVPNクライアントに$/) do
-  step %(タジマックス工業の PC)
+Given(/^タジマックス社の PC を VPN クライアントに$/) do
+  step %(タジマックス社の PC)
 end
 
 
