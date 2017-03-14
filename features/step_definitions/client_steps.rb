@@ -23,6 +23,6 @@ When(/^インターネット上の PC にログイン$/) do
   @src_host = @internet_pc
 end
 
-When(/^タジマックス工業の PC にログイン$/) do
+When(/^タジマックス社の PC にログイン$/) do
   @src_host = @tajimax_pc
 end
