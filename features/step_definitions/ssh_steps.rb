@@ -1,5 +1,5 @@
 # coding: utf-8
-When(/^ヨーヨーダイン社内部の資産管理サーバに ssh でログイン$/) do
+When(/^社内の資産管理サーバに ssh でログイン$/) do
   cd('.') do
     @src_host.exec "sudo ssh-keygen -f ./ssh-key -t rsa -b 2048 -N ''"
     @asset_host.exec "sudo /usr/sbin/sshd -o AuthorizedKeysFile=$PWD/ssh-key.pub -o PubkeyAuthentication=yes"
@@ -7,7 +7,7 @@ When(/^ヨーヨーダイン社内部の資産管理サーバに ssh でログ�
   end
 end
 
-When(/^ヨーヨーダイン社内部のテスト環境サーバに ssh でログイン$/) do
+When(/^社内のテスト環境サーバに ssh でログイン$/) do
   cd('.') do
     @src_host.exec "sudo ssh-keygen -f ./ssh-key -t rsa -b 2048 -N ''"
     @test_host.exec "sudo /usr/sbin/sshd -o AuthorizedKeysFile=$PWD/ssh-key.pub -o PubkeyAuthentication=yes"
@@ -15,7 +15,7 @@ When(/^ヨーヨーダイン社内部のテスト環境サーバに ssh でロ�
   end
 end
 
-When(/^ヨーヨーダイン社の DMZ の DNS サーバに ssh でログイン$/) do
+When(/^DMZ の DNS サーバに ssh でログイン$/) do
   cd('.') do
     @src_host.exec "sudo ssh-keygen -f ./ssh-key -t rsa -b 2048 -N ''"
     @dns_host.exec "sudo /usr/sbin/sshd -o AuthorizedKeysFile=$PWD/ssh-key.pub -o PubkeyAuthentication=yes"
@@ -23,7 +23,7 @@ When(/^ヨーヨーダイン社の DMZ の DNS サーバに ssh でログイン$
   end
 end
 
-When(/^ヨーヨーダイン社の VPN サーバに ssh でログイン$/) do
+When(/^VPN サーバに ssh でログイン$/) do
   cd('.') do
     @src_host.exec "sudo ssh-keygen -f ./ssh-key -t rsa -b 2048 -N ''"
     @vpn_host.exec "sudo /usr/sbin/sshd -o AuthorizedKeysFile=$PWD/ssh-key.pub -o PubkeyAuthentication=yes"
@@ -31,7 +31,7 @@ When(/^ヨーヨーダイン社の VPN サーバに ssh でログイン$/) do
   end
 end
 
-When(/^ヨーヨーダイン社の DMZ のサーバに ssh でログイン$/) do
+When(/^DMZ のサーバに ssh でログイン$/) do
   cd('.') do
     @src_host.exec "sudo ssh-keygen -f ./ssh-key -t rsa -b 2048 -N ''"
     @dmz_host.exec "sudo /usr/sbin/sshd -o AuthorizedKeysFile=$PWD/ssh-key.pub -o PubkeyAuthentication=yes"

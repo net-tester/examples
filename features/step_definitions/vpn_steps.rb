@@ -1,5 +1,5 @@
 # coding: utf-8
-When(/^ヨーヨーダイン社の VPN サーバに Firewall 経由で http でログイン$/) do
+When(/^VPN サーバに Firewall 経由で http でログイン$/) do
   cd('.') do
     system "echo '<title>LoginOK</title>' > login.html"
     @vpn_service = AsyncExecutor.new(host: @vpn_host, result_file: 'log/http_host.stdout', stderr_file: 'log/http_host.stderr')
@@ -8,7 +8,7 @@ When(/^ヨーヨーダイン社の VPN サーバに Firewall 経由で http で�
   end
 end
 
-When(/^ヨーヨーダイン社の VPN サーバに Firewall 経由で https でログイン$/) do
+When(/^VPN サーバに Firewall 経由で https でログイン$/) do
   cd('.') do
     system "echo '<title>LoginOK</title>' > login.html"
     @vpn_service = AsyncExecutor.new(host: @vpn_host, result_file: 'log/https_host.stdout', stderr_file: 'log/https_host.stderr')

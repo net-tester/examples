@@ -1,27 +1,27 @@
 @static
-Feature: ヨーヨーダイン社内部から VPN サーバにログイン
+Feature: 社内 PC から VPN サーバにログイン
 
-  ヨーヨーダイン社の管理者として、
-  ヨーヨーダイン社内部から VPN サーバに ssh コマンドや Web ブラウザ経由でログインしたい
+  ネットワーク管理者として、
+  社内 PC から VPN サーバに ssh コマンドや Web ブラウザ経由でログインしたい
   なぜなら VPN サーバをメンテナンスするから
 
-  Scenario: ヨーヨーダイン社内部の PC から VPN サーバに ssh でログイン
-    Given ヨーヨーダイン社内部のユーザ PC
-    And ヨーヨーダイン社の VPN サーバ
-    When ヨーヨーダイン社内部のユーザ PC にログイン
-    And ヨーヨーダイン社の VPN サーバに ssh でログイン
+  Scenario: 社内の PC から VPN サーバに ssh でログイン
+    Given 社内 PC
+    And VPN サーバ
+    When 社内 PC にログイン
+    And VPN サーバに ssh でログイン
     Then ログイン成功
 
-  Scenario: ヨーヨーダイン社内部の PC から VPN サーバに http でログイン
-    Given ヨーヨーダイン社内部のユーザ PC
-    And ヨーヨーダイン社の VPN サーバ
-    When ヨーヨーダイン社内部のユーザ PC にログイン
-    And ヨーヨーダイン社の VPN サーバに Web ブラウザから http でログイン
+  Scenario: 社内の PC から VPN サーバに http でログイン
+    Given 社内 PC
+    And VPN サーバ
+    When 社内 PC にログイン
+    And VPN サーバに Web ブラウザから http でログイン
     Then ログイン成功
 
-  Scenario: ヨーヨーダイン社内部の PC から VPN サーバに https でログイン
-    Given ヨーヨーダイン社内部のユーザ PC
-    And ヨーヨーダイン社の VPN サーバ
-    When ヨーヨーダイン社内部のユーザ PC にログイン
-    And ヨーヨーダイン社の VPN サーバに Web ブラウザから https でログイン
+  Scenario: 社内の PC から VPN サーバに https でログイン
+    Given 社内 PC
+    And VPN サーバ
+    When 社内 PC にログイン
+    And VPN サーバに Web ブラウザから https でログイン
     Then ログイン成功
