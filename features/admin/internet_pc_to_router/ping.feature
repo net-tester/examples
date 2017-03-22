@@ -1,11 +1,11 @@
 @static
-Feature: インターネットからヨーヨーダイン社の Router への疎通確認
+Feature: インターネットから Router へアクセス
 
-  ヨーヨーダイン社の管理者として、
-  インターネットからヨーヨーダイン社の Router への疎通確認をしたい
+  ネットワーク管理者として、
+  インターネットから Router にアクセスできることを確認したい
   なぜならインターネットからのアクセスは Router を経由するから
 
-  Scenario: インターネットからヨーヨーダイン社の Router への疎通確認
+  Scenario: インターネットから Router に ping
     Given インターネット上の PC
     When インターネット上の PC にログイン
     And Router に ping

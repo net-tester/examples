@@ -5,7 +5,7 @@ When(/^時刻をインターネット上の NTP サーバと同期$/) do
   end
 end
 
-When(/^時刻をインターネット上の NTP サーバと udp で同期$/) do
+When(/^時刻をインターネット上の NTP サーバと同期 \(UDP\)$/) do
   cd('.') do
     @ntp_service = AsyncExecutor.new(host: @internet_ntp_host, result_file: 'log/internet_ntp_host.log')
     @ntp_service.exec "bash -c 'echo -e \"adjust time server\" | nc -lu 123'"
@@ -13,7 +13,7 @@ When(/^時刻をインターネット上の NTP サーバと udp で同期$/) do
   end
 end
 
-When(/^時刻をインターネット上の NTP サーバと tcp で同期$/) do
+When(/^時刻をインターネット上の NTP サーバと同期 \(TCP\)$/) do
   cd('.') do
     @ntp_service = AsyncExecutor.new(host: @internet_ntp_host, result_file: 'log/internet_ntp_host.log')
     @ntp_service.exec "bash -c 'echo -e \"adjust time server\" | nc -l 123'"

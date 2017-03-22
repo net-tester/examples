@@ -33,7 +33,7 @@ When(/^(\d+) 秒待つ$/) do |seconds|
   sleep seconds.to_i
 end
 
-Then(/^FW の主系が (\w+) 、予備系が (\w+) になっていること$/) do |primary, secondary|
+Then(/^FW の主系が (\w+) 、予備系が (\w+) になっている$/) do |primary, secondary|
   status = ''
   base_dir = "#{__dir__}/../support/expectacle"
   result = `bundle exec run_command -r -b #{base_dir} -h ssg_host_1.yml -c ssg_get_nsrp_status.yml`.split("\n")

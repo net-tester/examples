@@ -1,29 +1,29 @@
 # coding: utf-8
-Given(/^ヨーヨーダイン社内部のユーザ PC$/) do
+Given(/^社内 PC$/) do
   @user_pc = Netns.new(attributes_for(:user_pc))
 end
 
-Given(/^ヨーヨーダイン社内部の資産管理サーバ$/) do
+Given(/^社内の資産管理サーバ$/) do
   @asset_host = Netns.new(attributes_for(:git_host))
 end
 
-Given(/^ヨーヨーダイン社内部のテスト環境サーバ$/) do
+Given(/^社内のテスト環境サーバ$/) do
   @test_host = Netns.new(attributes_for(:test_host))
 end
 
-Given(/^ヨーヨーダイン社の DMZ の DNS サーバ$/) do
+Given(/^DMZ の DNS サーバ$/) do
   @dns_host = Netns.new(attributes_for(:dns_host))
 end
 
-Given(/^ヨーヨーダイン社の DMZ のサーバ$/) do
+Given(/^DMZ のサーバ$/) do
   @dmz_host = Netns.new(attributes_for(:dmz_host))
 end
 
-Given(/^ヨーヨーダイン社の VPN サーバ$/) do
+Given(/^VPN サーバ$/) do
   @vpn_host = Netns.new(attributes_for(:vpn_host))
 end
 
-Given(/^ヨーヨーダイン社の DMZ の VPN アドレスプール$/) do
+Given(/^DMZ の VPN アドレスプール$/) do
   @vpn_address_pool = Netns.new(attributes_for(:vpn_address_pool))
 end
 
@@ -41,6 +41,10 @@ end
 
 Given(/^インターネット上のサーバ$/) do
   @internet_host = Netns.new(attributes_for(:internet_host))
+end
+
+Given(/^インターネット上のパッケージサーバ$/) do
+  step %(インターネット上のサーバ)
 end
 
 Given(/^タジマックス社の PC$/) do

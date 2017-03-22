@@ -1,21 +1,21 @@
 # coding: utf-8
-When(/^ヨーヨーダイン社内部のユーザ PC にログイン$/) do
+When(/^社内 PC にログイン$/) do
   @src_host = @user_pc
 end
 
-When(/^ヨーヨーダイン社の DMZ のサーバにログイン$/) do
+When(/^DMZ のサーバにログイン$/) do
   @src_host = @dmz_host
 end
 
-When(/^ヨーヨーダイン社の DMZ の DNS サーバにログイン$/) do
+When(/^DMZ の DNS サーバにログイン$/) do
   @src_host = @dns_host
 end
 
-When(/^ヨーヨーダイン社の VPN サーバにログイン$/) do
+When(/^VPN サーバにログイン$/) do
   @src_host = @vpn_host
 end
 
-When(/^ヨーヨーダイン社の DMZ の VPN アドレスプールにログイン$/) do
+When(/^DMZ の VPN アドレスプールにログイン$/) do
   @src_host = @vpn_address_pool
 end
 
