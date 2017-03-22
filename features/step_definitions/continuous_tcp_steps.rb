@@ -1,6 +1,6 @@
 # coding: utf-8
 
-When(/^VPN サーバにタジマックス社の PC から TCP 接続を開始$/) do
+When(/^タジマックス社の PC から VPN サーバに TCP で接続$/) do
   cd('.') do
     @echo_service = AsyncExecutor.new(host: @vpn_host, result_file: 'log/tcp_server.log')
     @echo_service.exec("../../features/support/echo_server.pl 80")
@@ -10,7 +10,7 @@ When(/^VPN サーバにタジマックス社の PC から TCP 接続を開始$/)
   end
 end
 
-When(/^社内の資産管理サーバに DMZ の VPN アドレスプールから TCP 接続を開始$/) do
+When(/^社内の資産管理サーバに DMZ の VPN アドレスプールから TCP で接続$/) do
   cd('.') do
     @echo_service = AsyncExecutor.new(host: @asset_host, result_file: 'log/tcp_server.log')
     @echo_service.exec("../../features/support/echo_server.pl 11000")
@@ -20,7 +20,7 @@ When(/^社内の資産管理サーバに DMZ の VPN アドレスプールから
   end
 end
 
-Then(/^VPN サーバにタジマックス社の PC からの TCP 接続が維持されている$/) do
+Then(/^タジマックス社の PC から VPN サーバへの TCP 接続が切れていない$/) do
   @echo_client.join
   cd('.') do
     line_count, _ = check_connection('log/tcp_a.log')
@@ -28,7 +28,7 @@ Then(/^VPN サーバにタジマックス社の PC からの TCP 接続が維持
   end
 end
 
-Then(/^社内の資産管理サーバに DMZ の VPN アドレスプールから TCP 接続が維持されている$/) do
+Then(/^DMZ の VPN アドレスプールから社内の資産管理サーバへの TCP 接続が切れていない$/) do
   @echo_client.join
   cd('.') do
     line_count, _ = check_connection('log/tcp_b.log')

@@ -43,6 +43,10 @@ Given(/^インターネット上のサーバ$/) do
   @internet_host = Netns.new(attributes_for(:internet_host))
 end
 
+Given(/^インターネット上のパッケージサーバ$/) do
+  step %(インターネット上のサーバ)
+end
+
 Given(/^タジマックス社の PC$/) do
   @tajimax_pc = Netns.new(attributes_for(:tajimax_pc))
 end

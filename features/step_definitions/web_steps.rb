@@ -35,7 +35,7 @@ When(/^DMZ のサーバに Web ブラウザから https でログイン$/) do
   end
 end
 
-When(/^http でインターネット上のサーバからパッケージアップデートを実行$/) do
+When(/^http でパッケージアップデートを実行$/) do
   cd('.') do
     system "echo '<title>UpdateOK</title>' > index.html"
     @http_service = AsyncExecutor.new(host: @internet_host, result_file: 'log/internet_host.log')
@@ -44,7 +44,7 @@ When(/^http でインターネット上のサーバからパッケージアッ�
   end
 end
 
-When(/^https でインターネット上のサーバからパッケージアップデートを実行$/) do
+When(/^https でパッケージアップデートを実行$/) do
   cd('.') do
     system "echo '<title>UpdateOK</title>' > index.html"
     @https_service = AsyncExecutor.new(host: @internet_host, result_file: 'log/internet_host.log')
