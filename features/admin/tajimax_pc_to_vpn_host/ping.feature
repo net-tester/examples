@@ -1,13 +1,13 @@
 @static
-Feature: タジマックス社の PC から VPN サーバへの疎通確認
+Feature: タジマックス社の PC から VPN サーバへアクセス
 
-  ヨーヨーダイン社の管理者として、
-  タジマックス社から VPN サーバへの疎通確認をしたい
+  ネットワーク管理者として、
+  タジマックス社から VPN サーバにアクセスできることを確認したい
   なぜならタジマックス社の開発者は VPN サーバを経由して開発環境にアクセスするから
 
-  Scenario: タジマックス社の PC から VPN サーバに疎通確認
+  Scenario: タジマックス社の PC から VPN サーバに ping
     Given タジマックス社の PC
-    And ヨーヨーダイン社の VPN サーバ
+    And VPN サーバ
     When タジマックス社の PC にログイン
-    And ヨーヨーダイン社の VPN サーバに ping
+    And VPN サーバに ping
     Then ping 成功

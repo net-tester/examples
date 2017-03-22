@@ -1,13 +1,13 @@
 @static
-Feature: ヨーヨーダイン社内部から DNS サーバへの疎通確認
+Feature: 社内 PC から DNS サーバへアクセス
 
-  ヨーヨーダイン社の管理者として、
-  ヨーヨーダイン社内部から DNS への疎通確認をしたい
-  なぜならヨーヨーダイン社の開発者は DNS サーバにアクセスする必要があるから
+  ネットワーク管理者として、
+  社内の PC から DNS へつながるかを確認したい
+  なぜなら開発者は社内 DNS サーバを使うから
 
-  Scenario: ヨーヨーダイン社内部から DNS サーバへの疎通確認
-    Given ヨーヨーダイン社内部のユーザ PC
-    And ヨーヨーダイン社の DMZ の DNS サーバ
-    When ヨーヨーダイン社内部のユーザ PC にログイン
-    And ヨーヨーダイン社の DMZ の DNS サーバに ping
+  Scenario: 社内の PC から DMZ の DNS サーバに ping
+    Given 社内 PC
+    And DMZ の DNS サーバ
+    When 社内 PC にログイン
+    And DMZ の DNS サーバに ping
     Then ping 成功

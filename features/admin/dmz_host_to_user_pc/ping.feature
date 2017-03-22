@@ -1,13 +1,13 @@
 @static
-Feature: ヨーヨーダイン社の DMZ のサーバからヨーヨーダイン社内部へ ping
+Feature: DMZ のサーバから社内へ ping
 
-  ヨーヨーダイン社の管理者として、
-  DMZ からヨーヨーダイン社内部へつながるか確認をしたい
-  なぜなら DMZ のサーバはヨーヨーダイン社内部にアクセスする必要があるから
+  ネットワーク管理者として、
+  DMZ から社内へつながるか確認をしたい
+  なぜなら DMZ のサーバは社内にアクセスする必要があるから
 
-  Scenario: DMZからヨーヨーダイン社内部へ ping
-    Given ヨーヨーダイン社の DMZ のサーバ
-    And ヨーヨーダイン社内部のユーザ PC
-    When ヨーヨーダイン社の DMZ のサーバにログイン
-    And ヨーヨーダイン社内部のユーザ PC に ping
+  Scenario: DMZから社内へ ping
+    Given DMZ のサーバ
+    And 社内 PC
+    When DMZ のサーバにログイン
+    And 社内 PC に ping
     Then ping 成功

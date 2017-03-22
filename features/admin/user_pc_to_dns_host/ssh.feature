@@ -1,13 +1,13 @@
 @static
-Feature: ヨーヨーダイン社内部の PC から DMZ の DNS サーバに ssh でログイン
+Feature: 社内の PC から DMZ の DNS サーバに ssh でログイン
 
-  ヨーヨーダイン社の管理者として、
-  ヨーヨーダイン社内部の PC から DMZ の DNS サーバに ssh でログインしたい
+  ネットワーク管理者として、
+  社内の PC から DMZ の DNS サーバに ssh でログインしたい
   なぜなら DNS サーバをメンテナンスするから
 
-  Scenario: ヨーヨーダイン社内部の PC から DMZ の DNS サーバに ssh
-    Given ヨーヨーダイン社内部のユーザ PC
-    And ヨーヨーダイン社の DMZ の DNS サーバ
-    When ヨーヨーダイン社内部のユーザ PC にログイン
-    And ヨーヨーダイン社の DMZ の DNS サーバに ssh でログイン
+  Scenario: 社内の PC から DMZ の DNS サーバに ssh
+    Given 社内 PC
+    And DMZ の DNS サーバ
+    When 社内 PC にログイン
+    And DMZ の DNS サーバに ssh でログイン
     Then ログイン成功

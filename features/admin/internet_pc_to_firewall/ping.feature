@@ -1,12 +1,12 @@
 @static
-Feature: インターネットからヨーヨーダイン社の Firewall への疎通確認
+Feature: インターネットから Firewall へアクセス
 
-  ヨーヨーダイン社の管理者として、
-  インターネットからヨーヨーダイン社の Firewall への疎通確認をしたい
+  ネットワーク管理者として、
+  インターネットから Firewall にアクセスできることを確認したい
   なぜならインターネットからのアクセスは Firewall を経由するから
 
-  Scenario: インターネットからヨーヨーダイン社の Firewall への疎通確認
+  Scenario: インターネットから Firewall に ping
     Given インターネット上の PC
-    When インターネット上の PC にログイン 
+    When インターネット上の PC にログイン
     And Firewall に ping
     Then ping 成功
