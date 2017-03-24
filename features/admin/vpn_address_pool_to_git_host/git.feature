@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: DMZ の VPN アドレスプールから社内の資産管理サーバへ git
 
   ネットワーク管理者として、

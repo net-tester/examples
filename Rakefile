@@ -3,7 +3,7 @@ task default: :cucumber
 begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new do |task|
-    tags = ENV.fetch('TAGS', '@static,@dynamic')
+    tags = ENV.fetch('TAGS', '@static_topology,@failure_recovery')
     no_internet_tag = tags.split(',').include?('@internet') ? '' : "--tags '~@internet' "
     task.cucumber_opts = "--tags '~@wip' #{no_internet_tag}--tags '#{tags}'"
   end

@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: DMZ のサーバのパッケージアップデート
 
   ネットワーク管理者として、

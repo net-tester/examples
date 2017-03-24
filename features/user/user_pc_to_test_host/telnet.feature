@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内テスト環境サーバ設定
 
   開発者として、

@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内テスト環境サーバの Web コンソールにアクセス
 
   開発者として、

@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: インターネットから Router へアクセス
 
   ネットワーク管理者として、

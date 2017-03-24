@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内からインターネットへアクセス
 
   ネットワーク管理者として、

@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: Google 検索
 
   開発者として、

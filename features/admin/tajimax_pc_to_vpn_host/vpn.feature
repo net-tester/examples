@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: タジマックス社の PC から VPN サーバにログイン
 
   ネットワーク管理者として、
