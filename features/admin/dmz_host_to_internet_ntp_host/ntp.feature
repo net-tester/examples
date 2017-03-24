@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: NTP で時刻を同期
 
   ネットワーク管理者として、

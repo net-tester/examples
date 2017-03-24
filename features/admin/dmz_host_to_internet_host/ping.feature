@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: DMZ から インターネット上のサーバへの ping
 
   ネットワーク管理者として、

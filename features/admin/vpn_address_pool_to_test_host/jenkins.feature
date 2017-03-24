@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内テスト環境の Web コンソールへの接続確認
 
   ネットワーク管理者として、

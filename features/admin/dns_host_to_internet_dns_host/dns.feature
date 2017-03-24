@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: DNS で名前解決
 
   ネットワーク管理者として、

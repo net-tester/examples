@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内から資産管理サーバに ssh でログイン
 
   ネットワーク管理者として、
