@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内の PC から DMZ の DNS サーバに ssh でログイン
 
   ネットワーク管理者として、

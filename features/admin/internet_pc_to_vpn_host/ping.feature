@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: インターネットから VPN サーバへ ping
 
   ネットワーク管理者として、

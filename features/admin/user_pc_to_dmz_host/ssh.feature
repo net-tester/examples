@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内の PC から DMZ のサーバにログイン
 
   ネットワーク管理者として、

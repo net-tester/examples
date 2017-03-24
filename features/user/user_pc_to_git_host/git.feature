@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内 Git サービス
 
   開発者として、

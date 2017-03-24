@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内 PC から VPN サーバにログイン
 
   ネットワーク管理者として、

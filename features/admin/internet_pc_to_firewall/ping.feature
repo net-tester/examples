@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: インターネットから Firewall へアクセス
 
   ネットワーク管理者として、

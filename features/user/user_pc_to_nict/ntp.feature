@@ -1,4 +1,4 @@
-@internet @static
+@internet @static_topology
 Feature: NTP で時刻を同期
 
   開発者として、

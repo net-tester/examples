@@ -1,4 +1,4 @@
-@static
+@static_topology
 Feature: 社内からテスト環境サーバに ssh でログイン
 
   ネットワーク管理者として、
