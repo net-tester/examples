@@ -1,10 +1,15 @@
+# coding: utf-8
 # frozen_string_literal: true
+
+# tester setは１箇所定義にしたいのでこうしている
+require File.expand_path("../support/tester_sets.rb", __FILE__)
 
 FactoryGirl.define do
 
   sequence :virtual_port_number, 2
 
   trait :internal_network_host do
+    tester_set tester_sets[:note]
     netmask '255.255.255.0'
     gateway '10.10.10.254'
     virtual_port_number
@@ -36,6 +41,7 @@ FactoryGirl.define do
   end
 
   trait :dmz_network do
+    tester_set tester_sets[:note]
     netmask '255.255.255.0'
     gateway '10.10.0.1'
     virtual_port_number
@@ -77,6 +83,7 @@ FactoryGirl.define do
   end
 
   trait :internet_network do
+    tester_set tester_sets[:note]
     netmask '255.255.255.0'
     gateway '198.51.100.254'
     virtual_port_number
@@ -120,5 +127,51 @@ FactoryGirl.define do
     ip_address '198.51.100.94'
     physical_port_number 3
     mac_address {Faker::Internet.mac_address('00')}
+  end
+
+  trait :note do
+    tester_set tester_sets[:note]
+    netmask '255.255.255.0'
+    virtual_port_number
+    gateway '198.51.100.254'
+  end
+
+  factory :note1_host, class: NetTester::Netns do
+    name 'note1_host'
+    note
+    ip_address '198.51.100.10'
+    physical_port_number 2
+    mac_address '00:00:5e:00:53:01'
+  end
+
+  factory :note2_host, class: NetTester::Netns do
+    name 'note2_host'
+    note
+    ip_address '198.51.100.11'
+    physical_port_number 3
+    mac_address '00:00:5e:00:53:02'
+  end
+
+  trait :tama do
+    tester_set tester_sets[:tama]
+    netmask '255.255.255.0'
+    virtual_port_number
+    gateway '198.51.100.254'
+  end
+
+  factory :tama1_host, class: NetTester::Netns do
+    name 'tama1_host'
+    tama
+    ip_address '198.51.100.20'
+    physical_port_number 3
+    mac_address '00:00:5e:00:53:03'
+  end
+
+  factory :tama2_host, class: NetTester::Netns do
+    name 'tama2_host'
+    tama
+    ip_address '198.51.100.21'
+    physical_port_number 2
+    mac_address '00:00:5e:00:53:04'
   end
 end
