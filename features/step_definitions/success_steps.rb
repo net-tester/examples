@@ -1,9 +1,13 @@
+Then(/^アクセス成功$/) do
+  step %(the file "log/access.log" should contain "AccessOK")
+end
+
 Then(/^ログイン成功$/) do
-  step %(the file "log/login.log" should contain "LoginOK")
+  step %(アクセス成功)
 end
 
 Then(/^アップデート成功$/) do
-  step %(the file "log/update.log" should contain "UpdateOK")
+  step %(アクセス成功)
 end
 
 Then(/^時刻の同期に成功$/) do
