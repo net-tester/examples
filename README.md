@@ -32,34 +32,34 @@ end-to-end の通信ができるかどうかをテストすることを「静的
 
 静的なテストの例:
 * [社内 Git サービス](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_git_host/git.feature)
-* [telnetで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_test_host/telnet.feature)
-* [Webブラウザで社内テスト環境Webコンソールへアクセス](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_test_host/jenkins.feature)
-* [sshで社内から資産管理サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_git_host/ssh.feature)
-* [sshで社内からテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_test_host/ssh.feature)
-* [社内 DNS サーバで名前解決](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_dns_host/dns.feature)
-* [Google 検索(実インターネット接続なし版)](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_internet_host/web.feature)
-* [Google 検索](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_google/web.feature)
-* [NTP で時刻を同期](https://github.com/net-tester/examples/blob/develop/features/user/user_pc_to_nict/ntp.feature)
-* [pingで社内からDMZへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_dmz_host/ping.feature)
-* [pingで社内からDMZ内のDNSサーバへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_dns_host/ping.feature)
-* [pingで社内からインターネットへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_internet_host/ping.feature)
-* [sshで社内からDMZ内のDNSサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_dns_host/ssh.feature)
-* [sshクライアントとWebブラウザで社内からDMZのサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_dmz_host/ssh.feature)
-* [sshクライアントとWebブラウザで社内からDMZのVPNサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/user_pc_to_vpn_host/ssh.feature)
-* [DMZ内サーバのパッケージ更新](https://github.com/net-tester/examples/blob/develop/features/admin/dmz_host_to_internet_host/web.feature)
-* [上位 DNS サーバで名前解決](https://github.com/net-tester/examples/blob/develop/features/admin/dns_host_to_internet_dns_host/dns.feature)
-* [DMZ内のサーバからDMZ内のDNSサーバでインターネット上のサーバの名前解決](https://github.com/net-tester/examples/blob/develop/features/admin/dmz_host_to_dns_host/dns.feature)
-* [NTP でDMZのサーバの時刻を同期](https://github.com/net-tester/examples/blob/develop/features/admin/dmz_host_to_internet_ntp_host/ntp.feature)
-* [DMZのVPNアドレスプールから社内 Git サービスの利用](https://github.com/net-tester/examples/blob/develop/features/admin/vpn_address_pool_to_git_host/git.feature)
-* [telnetでDMZのVPNアドレスプールからテスト環境サーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/vpn_address_pool_to_test_host/telnet.feature)
-* [DMZのVPNアドレスプールからWebブラウザで社内テスト環境Webコンソールへアクセス](https://github.com/net-tester/examples/blob/develop/features/admin/vpn_address_pool_to_test_host/jenkins.feature)
-* [pingでDMZからインターネットへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/dmz_host_to_internet_host/ping.feature)
-* [pingでDMZから社内へ疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/dmz_host_to_user_pc/ping.feature)
-* [pingでインターネットからVPNサーバへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/internet_pc_to_vpn_host/ping.feature)
-* [pingでインターネットからルータへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/internet_pc_to_router/ping.feature)
-* [pingでインターネットからファイアウォールへの疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/internet_pc_to_firewall/ping.feature)
-* [タジマックス社からVPNサーバへログイン](https://github.com/net-tester/examples/blob/develop/features/admin/tajimax_pc_to_vpn_host/vpn.feature)
-* [pingでタジマックス社からVPNサーバへ疎通確認](https://github.com/net-tester/examples/blob/develop/features/admin/tajimax_pc_to_vpn_host/ping.feature)
+* [telnetで社内からテスト環境サーバへログイン](./features/user/user_pc_to_test_host/telnet.feature)
+* [Webブラウザで社内テスト環境Webコンソールへアクセス](./features/user/user_pc_to_test_host/jenkins.feature)
+* [sshで社内から資産管理サーバへログイン](./features/admin/user_pc_to_git_host/ssh.feature)
+* [sshで社内からテスト環境サーバへログイン](./features/admin/user_pc_to_test_host/ssh.feature)
+* [社内 DNS サーバで名前解決](./features/user/user_pc_to_dns_host/dns.feature)
+* [Google 検索(実インターネット接続なし版)](./features/user/user_pc_to_internet_host/web.feature)
+* [Google 検索](./features/user/user_pc_to_google/web.feature)
+* [NTP で時刻を同期](./features/user/user_pc_to_nict/ntp.feature)
+* [pingで社内からDMZへ疎通確認](./features/admin/user_pc_to_dmz_host/ping.feature)
+* [pingで社内からDMZ内のDNSサーバへ疎通確認](./features/admin/user_pc_to_dns_host/ping.feature)
+* [pingで社内からインターネットへの疎通確認](./features/admin/user_pc_to_internet_host/ping.feature)
+* [sshで社内からDMZ内のDNSサーバへログイン](./features/admin/user_pc_to_dns_host/ssh.feature)
+* [sshクライアントとWebブラウザで社内からDMZのサーバへログイン](./features/admin/user_pc_to_dmz_host/ssh.feature)
+* [sshクライアントとWebブラウザで社内からDMZのVPNサーバへログイン](./features/admin/user_pc_to_vpn_host/ssh.feature)
+* [DMZ内サーバのパッケージ更新](./features/admin/dmz_host_to_internet_host/web.feature)
+* [上位 DNS サーバで名前解決](./features/admin/dns_host_to_internet_dns_host/dns.feature)
+* [DMZ内のサーバからDMZ内のDNSサーバでインターネット上のサーバの名前解決](./features/admin/dmz_host_to_dns_host/dns.feature)
+* [NTP でDMZのサーバの時刻を同期](./features/admin/dmz_host_to_internet_ntp_host/ntp.feature)
+* [DMZのVPNアドレスプールから社内 Git サービスの利用](./features/admin/vpn_address_pool_to_git_host/git.feature)
+* [telnetでDMZのVPNアドレスプールからテスト環境サーバへログイン](./features/admin/vpn_address_pool_to_test_host/telnet.feature)
+* [DMZのVPNアドレスプールからWebブラウザで社内テスト環境Webコンソールへアクセス](./features/admin/vpn_address_pool_to_test_host/jenkins.feature)
+* [pingでDMZからインターネットへ疎通確認](./features/admin/dmz_host_to_internet_host/ping.feature)
+* [pingでDMZから社内へ疎通確認](./features/admin/dmz_host_to_user_pc/ping.feature)
+* [pingでインターネットからVPNサーバへ疎通確認](./features/admin/internet_pc_to_vpn_host/ping.feature)
+* [pingでインターネットからルータへの疎通確認](./features/admin/internet_pc_to_router/ping.feature)
+* [pingでインターネットからファイアウォールへの疎通確認](./features/admin/internet_pc_to_firewall/ping.feature)
+* [タジマックス社からVPNサーバへログイン](./features/admin/tajimax_pc_to_vpn_host/vpn.feature)
+* [pingでタジマックス社からVPNサーバへ疎通確認](./features/admin/tajimax_pc_to_vpn_host/ping.feature)
 
 ### 動的なテスト
 このプロジェクトでは、ネットワークの状態が変化するとき
@@ -77,12 +77,12 @@ FW1 にリンク障害が発生して Active/Passive が交代するときに、
 FW を経由する通信を伴う業務が継続可能かどうかテストします。
 
 動的なテストの例:
-* [FW上流のリンク障害と回復時におけるpingの通信継続確認](https://github.com/net-tester/examples/blob/develop/features/admin/fw1_l2swex_linkdown/ping.feature)
-* [FW上流のリンク障害と回復時におけるTCPの接続維持確認](https://github.com/net-tester/examples/blob/develop/features/admin/fw1_l2swex_linkdown/tcp.feature)
-* [FW下流のリンク障害と回復時におけるpingの通信継続確認](https://github.com/net-tester/examples/blob/develop/features/admin/fw1_l2sw1_linkdown/ping.feature)
-* [FW下流のリンク障害と回復時におけるTCPの接続維持確認](https://github.com/net-tester/examples/blob/develop/features/admin/fw1_l2sw1_linkdown/tcp.feature)
-* [リモートワーク作業中のFW上流のリンク障害、回復における接続維持確認](https://github.com/net-tester/examples/blob/develop/features/user/fw1_l2swex_linkdown/tcp.feature)
-* [リモートワーク作業中のFW下流のリンク障害、回復における接続維持確認](https://github.com/net-tester/examples/blob/develop/features/user/fw1_l2sw1_linkdown/tcp.feature)
+* [FW上流のリンク障害と回復時におけるpingの通信継続確認](./features/admin/fw1_l2swex_linkdown/ping.feature)
+* [FW上流のリンク障害と回復時におけるTCPの接続維持確認](./features/admin/fw1_l2swex_linkdown/tcp.feature)
+* [FW下流のリンク障害と回復時におけるpingの通信継続確認](./features/admin/fw1_l2sw1_linkdown/ping.feature)
+* [FW下流のリンク障害と回復時におけるTCPの接続維持確認](./features/admin/fw1_l2sw1_linkdown/tcp.feature)
+* [リモートワーク作業中のFW上流のリンク障害、回復における接続維持確認](./features/user/fw1_l2swex_linkdown/tcp.feature)
+* [リモートワーク作業中のFW下流のリンク障害、回復における接続維持確認](./features/user/fw1_l2sw1_linkdown/tcp.feature)
 
 ## テストの実行
 
@@ -129,6 +129,9 @@ $ rake DEVICE=ens5 DPID=0x1 cucumber
 解説付きデモ動画では terminal の様子は早送りした状態になっていますが、こちらはリアルタイム + 編集なしです。
 * [静的なテスト実行部分の抜粋](https://asciinema.org/a/8wyyvxyxkxv37snfucqw84ngr)
 : 静的なテストの連続実行の様子です。
+* [回帰テスト実行](https://asciinema.org/a/8edt575qry94gp4b6rflah2az) : (2017-04-06) 最終的にすべてのテストシナリオをまとめて実行(回帰テスト実行)したときの様子です。
+  * 58 シナリオ (35 features) を 28 分で実行。
+  * 通信テスト(静的なふるまいのテスト)の合間に障害テスト(動的なふるまいのテスト)も入ります。
 
 ## 参考資料
 カンファレンス・勉強会等で発表した資料 :
