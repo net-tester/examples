@@ -8,7 +8,6 @@ Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
   table.hashes.each do |each|
     tester_set = tester_sets[each['拠点']]
     unless @testers.key?(each['拠点']) then
-      p tester_set
       NetTester.run_on(tester_set: tester_set[:ip_address], network_device: tester_set[:device], physical_switch_dpid: tester_set[:dpid])
       @testers[each['拠点']] = tester_set
       sleep 2
@@ -19,18 +18,13 @@ Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
   end
 end
 
-When(/^note1 にログイン$/) do
-  @src_host = @nodes['note1']
+When(/^(\w+) にログイン$/) do |src_host_name|
+  @src_host = @nodes[src_host_name]
 end
 
-When(/^tama1 に ping$/) do
-  # cdするとENVが消えてsshに失敗するようになる(HOMEがないといわれる。見てみるとほぼ全部envきえてる)
-  # これは理由がわからないので困ってます！
-  # が、そもそもsshしてからcdしないといけないのでここのcdは不要なため削除
-  #cd('.') do
-    @tama1_host = @nodes['tama1']
-    @src_host.exec "bash -c 'ping #{@tama1_host.ip_address} -c 1; exit 0'"
-    @src_host.exec "ping #{@tama1_host.ip_address} -c 4 > log/ping.log"
-  #end
+When(/^(\w+) に ping$/) do |dest_host_name|
+  @dest_host = @nodes[dest_host_name]
+  @src_host.exec "bash -c 'ping #{@dest_host.ip_address} -c 1; exit 0'"
+  @src_host.exec "ping #{@dest_host.ip_address} -c 4 > log/ping.log"
 end
 
