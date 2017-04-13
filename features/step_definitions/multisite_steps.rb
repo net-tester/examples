@@ -2,16 +2,14 @@
 
 # とりあえずここに書いてあとでバラす
 # NetTesterの起動はBeforeからここに移動
-
 Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
   @nodes = {}
   @testers = {}
-  device = ENV['DEVICE'] || 'eth1'
-  dpid = ENV['DPID'].try(&:hex) || 0x123
   table.hashes.each do |each|
-    tester_set = tester_sets[each['拠点'].to_sym]
+    tester_set = tester_sets[each['拠点']]
     unless @testers.key?(each['拠点']) then
-      NetTester.run_on(tester_set: tester_set, network_device: device, physical_switch_dpid: dpid)
+      p tester_set
+      NetTester.run_on(tester_set: tester_set[:ip_address], network_device: tester_set[:device], physical_switch_dpid: tester_set[:dpid])
       @testers[each['拠点']] = tester_set
       sleep 2
     end

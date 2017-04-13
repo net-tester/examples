@@ -23,8 +23,8 @@ require File.expand_path("../tester_sets.rb", __FILE__)
 
 After do
   # 全testerのnet testrをkill
-  tester_sets.each{|_, ip_address|
-    NetTester.kill_on(tester_set: ip_address)
+  tester_sets.each{|_, tester_set|
+    NetTester.kill_on(tester_set: tester_set[:ip_address])
   }
 
   # これらは上記の分散実行に変更
