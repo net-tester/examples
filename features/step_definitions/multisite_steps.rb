@@ -10,8 +10,10 @@ Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
     unless @testers.key?(each['拠点']) then
       NetTester.run_on(tester_set: tester_set[:ip_address], network_device: tester_set[:device], physical_switch_dpid: tester_set[:dpid])
       @testers[each['拠点']] = tester_set
-      sleep 2
     end
+  end
+  sleep 2
+  table.hashes.each do |each|
     attributes = attributes_for("#{each['ノード']}_host".to_sym)
     attributes[:vlan_id] = vlan_id
     @nodes[each['ノード']] = RemoteNetns.new(attributes)
