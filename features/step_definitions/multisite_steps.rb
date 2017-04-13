@@ -20,11 +20,8 @@ Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
   end
 end
 
-When(/^(\w+) にログイン$/) do |src_host_name|
+When(/^(\w+) から (\w+) に ping$/) do |src_host_name, dest_host_name|
   @src_host = @nodes[src_host_name]
-end
-
-When(/^(\w+) に ping$/) do |dest_host_name|
   @dest_host = @nodes[dest_host_name]
   @src_host.exec "bash -c 'ping #{@dest_host.ip_address} -c 1; exit 0'"
   @src_host.exec "ping #{@dest_host.ip_address} -c 4 > log/ping.log"

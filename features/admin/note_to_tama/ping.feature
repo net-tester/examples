@@ -10,6 +10,5 @@ Feature: VLAN 開通確認
       | 拠点 | ノード |
       | note | note1  |
       | tama | tama1  |
-    When note1 にログイン
-    And tama1 に ping
+    When note1 から tama1 に ping
     Then ping 成功
