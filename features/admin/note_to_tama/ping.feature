@@ -10,5 +10,10 @@ Feature: VLAN 開通確認
       | 拠点 | ノード |
       | note | note1  |
       | tama | tama1  |
-    When note1 から tama1 に ping
-    Then ping 成功
+    And 通信要件表
+      | 送信元 | 送信先 | 通信可否 |
+      | note1  | tama1  | O        |
+      | tama1  | note1  | X        |
+    When 通信要件どおりに ping
+    Then 通信要件どおりに ping 成功
+

@@ -130,6 +130,7 @@ FactoryGirl.define do
   end
 
   trait :note do
+    tester_set_name 'note'
     tester_set tester_sets['note'][:ip_address]
     netmask '255.255.255.0'
     virtual_port_number
@@ -153,6 +154,7 @@ FactoryGirl.define do
   end
 
   trait :tama do
+    tester_set_name 'tama'
     tester_set tester_sets['tama'][:ip_address]
     netmask '255.255.255.0'
     virtual_port_number
