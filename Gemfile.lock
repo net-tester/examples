@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/net-tester/net-tester.git
-  revision: 564c0efdce412a69abcce8b76d9ff59836760895
-  branch: develop
+  remote: git://github.com/qb0C80aE/net-tester.git
+  revision: d6438af1a535b55784b7143eff3c6a2eb7465dae
+  branch: feature/multi-site-ssh
   specs:
     net_tester (0.2.0)
       faker (~> 1.6, >= 1.6)
@@ -84,7 +84,7 @@ GEM
     diff-lcs (1.2.5)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
-    faker (1.6.6)
+    faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.14)
     gherkin (4.0.0)
@@ -95,6 +95,9 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multi_test (0.1.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (4.1.0)
     parser (2.3.1.0)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -130,6 +133,8 @@ DEPENDENCIES
   cucumber
   expectacle!
   factory_girl
+  net-scp
+  net-ssh
   net_tester!
   phut!
   pio!
@@ -138,4 +143,4 @@ DEPENDENCIES
   trema!
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
