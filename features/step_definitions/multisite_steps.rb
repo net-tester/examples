@@ -35,9 +35,20 @@ When(/^通信要件どおりに ping$/) do
     # 捨てping
     src_host_command = {
       :host_name => src_host_name,
-      :command => "bash -c 'ping #{dest_host[:ip_address]} -c 1; exit 0'"
+      :command => "ping #{dest_host[:ip_address]} -c 1"
     }
-    @http_client.post(apiroot+"processes", src_host_command.to_json, 'Content-Type' => 'application/json')
+    res = @http_client.post(apiroot+"processes", src_host_command.to_json, 'Content-Type' => 'application/json')
+    result = JSON.parse(res.body)
+    id = result["id"]
+    # 捨てpingが終わるのを待つ
+    while(1) do
+      res = @http_client.get(apiroot + "processes/" + id)
+      result = JSON.parse(res.body)
+      if(result["status"] == "finished") then
+        break
+      end
+      sleep 1
+    end
 
     # 本チャン
     src_host_command = {
