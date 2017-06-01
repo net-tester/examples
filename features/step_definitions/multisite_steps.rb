@@ -1,23 +1,20 @@
 # coding: utf-8
+require 'httpclient'
 
-# とりあえずここに書いてあとでバラす
-# NetTesterの起動はBeforeからここに移動
 Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
-  @nodes = {}
-  @testers = {}
-  table.hashes.each do |each|
-    tester_set = tester_sets[each['拠点']]
-    unless @testers.key?(each['拠点']) then
-      NetTester.run_on(tester_set: tester_set[:ip_address], network_device: tester_set[:device], physical_switch_dpid: tester_set[:dpid])
-      @testers[each['拠点']] = tester_set
-    end
-  end
-  sleep 2
+  http_client = HTTPClient.new
+
   table.hashes.each do |each|
     attributes = attributes_for("#{each['ノード']}_host".to_sym)
-    attributes[:vlan_id] = vlan_id
+    attributes[:vlan_id] = vlan_id.to_i
     attributes.delete(:tester_set_name)
-    @nodes[each['ノード']] = RemoteNetns.new(attributes)
+    attributes.delete(:tester_set)
+    attributes.delete(:name)
+
+    tester_set = tester_sets[each['拠点']]
+    apiroot = "http://" + tester_set[:ip_address] + ":3000/"
+    http_client.put(apiroot + "hosts/#{each['ノード']}", attributes.to_json, 'Content-Type' => 'application/json')
+    # TODO: error catch
   end
 end
 
@@ -30,23 +27,59 @@ Given(/^通信要件表$/) do |table|
 end
 
 When(/^通信要件どおりに ping$/) do
+  http_client = HTTPClient.new
   @requirements.each do |requirement|
     src_host_name = requirement[:src]
     dest_host_name = requirement[:dest]
-    @src_host = @nodes[src_host_name]
-    @dest_host = @nodes[dest_host_name]
-    @src_host.exec "bash -c 'ping #{@dest_host.ip_address} -c 1; exit 0'"
-    @src_host.exec "ping #{@dest_host.ip_address} -c 4 > log/ping.log"
-    collect_logs("ping_#{src_host_name}_#{dest_host_name}")
+    src_host = attributes_for("#{src_host_name}_host".to_sym)
+    dest_host = attributes_for("#{dest_host_name}_host".to_sym)
+
+    tester_set = tester_sets[src_host[:tester_set_name]]
+    apiroot = "http://" + tester_set[:ip_address] + ":3000/"
+    # 捨てping
+    src_host_command = {
+      :host_name => src_host_name,
+      :command => "bash -c 'ping #{dest_host[:ip_address]} -c 1; exit 0'"
+    }
+    http_client.post(apiroot+"processes", src_host_command.to_json, 'Content-Type' => 'application/json')
+
+    # 本チャン
+    src_host_command = {
+      :host_name => src_host_name,
+      :command => "ping #{dest_host[:ip_address]} -c 4"
+    }
+    res = http_client.post(apiroot+"processes", src_host_command.to_json, 'Content-Type' => 'application/json')
+    result = JSON.parse(res.body)
+    requirement[:id] = result["id"]
   end
 end
 
 Then(/^通信要件どおりに ping 成功$/) do
+  http_client = HTTPClient.new
+
   @requirements.each do |requirement|
     src_host_name = requirement[:src]
     dest_host_name = requirement[:dest]
-    tester_set_name = attributes_for("#{src_host_name}_host")[:tester_set_name]
-    step %(the file "log/ping_#{src_host_name}_#{dest_host_name}/#{tester_set_name}/ping.log" should contain "4 received, 0% packet loss")
+    src_host = attributes_for("#{src_host_name}_host".to_sym)
+    dest_host = attributes_for("#{dest_host_name}_host".to_sym)
+
+    tester_set = tester_sets[src_host[:tester_set_name]]
+
+    apiroot = "http://" + tester_set[:ip_address] + ":3000/"
+    while(1) do
+      res = http_client.get(apiroot + "processes/" + requirement[:id])
+      result = JSON.parse(res.body)
+      if(result["status"] == "finished") then
+        break
+      end
+      sleep 1
+    end
+
+    if(requirement[:access] == 'O') then
+      expect(result["stdout"]).to match /4 received, 0% packet loss/
+    else
+      expect(result["stdout"]).to match /100% packet loss/
+    end
   end
 end
 

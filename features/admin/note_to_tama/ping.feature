@@ -13,7 +13,7 @@ Feature: VLAN 開通確認
     And 通信要件表
       | 送信元 | 送信先 | 通信可否 |
       | note1  | tama1  | O        |
-      | tama1  | note1  | X        |
+      | tama1  | note1  | O        |
     When 通信要件どおりに ping
     Then 通信要件どおりに ping 成功
 

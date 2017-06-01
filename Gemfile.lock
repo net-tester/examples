@@ -89,6 +89,7 @@ GEM
     ffi (1.9.14)
     gherkin (4.0.0)
     gli (2.13.4)
+    httpclient (2.8.3)
     i18n (0.7.0)
     json (1.8.3)
     method_source (0.8.2)
@@ -133,6 +134,7 @@ DEPENDENCIES
   cucumber
   expectacle!
   factory_girl
+  httpclient
   net-scp
   net-ssh
   net_tester!
@@ -143,4 +145,4 @@ DEPENDENCIES
   trema!
 
 BUNDLED WITH
-   1.13.6
+   1.14.3

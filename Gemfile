@@ -20,3 +20,5 @@ gem 'phut', github: 'trema/phut', branch: 'develop'
 gem 'trema', github: 'trema/trema', branch: 'develop'
 
 gem 'expectacle', github: 'stereocat/expectacle', branch: 'develop'
+
+gem 'httpclient'
