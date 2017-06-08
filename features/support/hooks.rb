@@ -12,18 +12,22 @@ Before do
   # HTTP req/res 表示用
   # @http_client.debug_dev = $stderr
 
-  # TODO: work-around なぜか初回にいきなりhostを作るとISEになるので、一回削除を挟んでおく
-  tester_sets.each{|_, tester_set|
+  # 念のため環境をきれいにしておく
+  tester_sets.each do |_, tester_set|
     apiroot = "http://" + tester_set[:ip_address] + ":3000/"
     res = @http_client.delete(apiroot + "sites")
-  }
-  # TODO: エラーチェック
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot delete sites (site:#{_}, code:#{res.code})"))
+    end
+  end
 end
 
 After do
-  tester_sets.each{|_, tester_set|
+  tester_sets.each do |_, tester_set|
     apiroot = "http://" + tester_set[:ip_address] + ":3000/"
     res = @http_client.delete(apiroot + "sites")
-  }
-  # TODO: エラーチェック
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot delete sites (site:#{_}, code:#{res.code})"))
+    end
+  end
 end

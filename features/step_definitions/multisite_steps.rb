@@ -10,8 +10,10 @@ Given(/^VLAN ID (\d+) のユーザグループ$/) do |vlan_id, table|
 
     tester_set = tester_sets[each['拠点']]
     apiroot = "http://" + tester_set[:ip_address] + ":3000/"
-    @http_client.put(apiroot + "hosts/#{each['ノード']}", attributes.to_json, 'Content-Type' => 'application/json')
-    # TODO: error catch
+    res = @http_client.put(apiroot + "hosts/#{each['ノード']}", attributes.to_json, 'Content-Type' => 'application/json')
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot create node (site:#{each['拠点']}, host:#{each['ノード']}, code:#{res.code})"))
+    end
   end
 end
 
@@ -38,11 +40,17 @@ When(/^通信要件どおりに ping$/) do
       :command => "ping #{dest_host[:ip_address]} -c 1"
     }
     res = @http_client.post(apiroot+"processes", src_host_command.to_json, 'Content-Type' => 'application/json')
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot execute process (site:#{each['拠点']}, host:#{attributes[:name]}, code:#{res.code})"))
+    end
     result = JSON.parse(res.body)
-    id = result["id"]
+    id = result["id"].to_s
     # 捨てpingが終わるのを待つ
     while(1) do
       res = @http_client.get(apiroot + "processes/" + id)
+      if (res.code / 100).to_i != 2 then
+        fail(StandardError.new("Cannot get process info (site:#{each['拠点']}, host:#{attributes[:name]}, pid:#{id}, code:#{res.code})"))
+      end
       result = JSON.parse(res.body)
       if(result["status"] == "finished") then
         break
@@ -56,8 +64,11 @@ When(/^通信要件どおりに ping$/) do
       :command => "ping #{dest_host[:ip_address]} -c 4"
     }
     res = @http_client.post(apiroot+"processes", src_host_command.to_json, 'Content-Type' => 'application/json')
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot execute process (site:#{each['拠点']}, host:#{attributes[:name]}, code:#{res.code})"))
+    end
     result = JSON.parse(res.body)
-    requirement[:id] = result["id"]
+    requirement[:id] = result["id"].to_s
   end
 end
 
@@ -73,6 +84,9 @@ Then(/^通信要件どおりに ping 成功$/) do
     apiroot = "http://" + tester_set[:ip_address] + ":3000/"
     while(1) do
       res = @http_client.get(apiroot + "processes/" + requirement[:id])
+      if (res.code / 100).to_i != 2 then
+        fail(StandardError.new("Cannot get process info (site:#{each['拠点']}, host:#{attributes[:name]}, pid:#{id}, code:#{res.code})"))
+      end
       result = JSON.parse(res.body)
       if(result["status"] == "finished") then
         break
