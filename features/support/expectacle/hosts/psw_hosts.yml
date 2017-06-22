@@ -1,0 +1,7 @@
+- :hostname : 'psw'
+  :type : 'pica8'
+  :ipaddr : "<%= ENV['PSW_IP'] %>"
+  :protocol : 'ssh'
+  :username : "<%= ENV['OFS_USER'] %>"
+  :password : "<%= ENV['OFS_PASS'] %>"
+  :enable : ""
