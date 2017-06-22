@@ -2,6 +2,6 @@
   :type : 'pica8'
   :ipaddr : '192.168.20.155'
   :protocol : 'ssh'
-  :username : "admin"
-  :password : "1q2w3e"
+  :username : "<%= ENV['OFS_USER'] %>"
+  :password : "<%= ENV['OFS_PASS'] %>"
   :enable : ""
