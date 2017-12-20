@@ -2,25 +2,35 @@
 
 require 'active_support/core_ext/object/try'
 require 'expectacle'
+require 'httpclient'
+require File.expand_path("../tester_sets.rb", __FILE__)
 
 Before do
+  @http_client = HTTPClient.new
+  tester_sets.each do |_, tester_set|
+    apiroot = "http://" + tester_set[:ip_address] + ":3000/"
+    res = @http_client.delete(apiroot + "sites")
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot delete sites (site:#{_}, code:#{res.code})"))
+    end
+  end
+
+  # TODO: need to support remote operation
   base_dir = "#{__dir__}/../support/expectacle"
   psw_before_flows_raw = `bundle exec run_command -r -b #{base_dir} -h psw_hosts.yml -c pica8_dumpflows.yml`.split("\r\n")
   @psw_before_flows = psw_before_flows_raw.grep(/^(NXST_FLOW| cookie)/).join("\n")
-
-  NetTester.log_dir = File.join(Aruba.config.working_directory, 'log')
-  NetTester.pid_dir = File.join(Aruba.config.working_directory, 'pids')
-  NetTester.socket_dir = File.join(Aruba.config.working_directory, 'sockets')
-
-  device = ENV['DEVICE'] || 'eth1'
-  dpid = ENV['DPID'].try(&:hex) || 0x123
-  NetTester.run(network_device: device, physical_switch_dpid: dpid)
-  sleep 2
 end
 
 After do
-  NetTester.kill
-  system('sudo rm -rf /etc/netns/*')
+  tester_sets.each do |_, tester_set|
+    apiroot = "http://" + tester_set[:ip_address] + ":3000/"
+    res = @http_client.delete(apiroot + "sites")
+    if (res.code / 100).to_i != 2 then
+      fail(StandardError.new("Cannot delete sites (site:#{_}, code:#{res.code})"))
+    end
+  end
+
+  # TODO: need to support remote operation
   thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/expectacle', logger: :syslog, verbose: false)
   l2sw_hosts = YAML.load_file("#{thrower.hosts_dir}/c3750g_hosts.yml")
   l2sw_commands = YAML.load_file("#{thrower.commands_dir}/c3750g_teardown.yml")
