@@ -9,8 +9,8 @@ class TestNode
     @name = attributes[:name]
     @tester_set_name = attributes[:tester_set_name]
     @ip_address = attributes[:ip_address]
-    tester_set = tester_sets[@tester_set_name]
-    @apiroot = "http://#{tester_set[:ip_address]}:3000/"
+    @tester_set = tester_sets[@tester_set_name]
+    @apiroot = "http://#{@tester_set[:ip_address]}:3000/"
     attributes.delete(:name)
     attributes.delete(:tester_set_name)
     res = @http_client.put(@apiroot + "hosts/#{@name}", attributes.to_json, 'Content-Type' => 'application/json')
@@ -19,7 +19,7 @@ class TestNode
     end
   end
 
-  attr_reader :ip_address, :name
+  attr_reader :ip_address, :name, :tester_set
 
   def exec(cmd, attributes = {})
     sync = attributes[:sync]
