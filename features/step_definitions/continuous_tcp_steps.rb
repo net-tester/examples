@@ -9,7 +9,7 @@ When(/^タジマックス社の PC から VPN サーバに TCP で接続$/) do
     @echo_service.exec('perl tmp/aruba/testlets/echo_server.pl 80')
 
     @echo_client = @tajimax_pc
-    @process_id = @echo_client.exec('perl tmp/aruba/testlets//echo_client.pl 203.0.113.5 80 30', delayed: true)
+    @process_id = @echo_client.exec('perl tmp/aruba/testlets/echo_client.pl 203.0.113.5 80 30', delayed: true)
   end
 end
 
