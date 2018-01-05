@@ -1,5 +1,5 @@
 require 'expectacle'
-require 'net/http'
+require 'httpclient'
 
 def make_port_down(port)
     thrower = Expectacle::Thrower.new(base_dir: __dir__ + '/../support/expectacle', logger: :syslog, verbose: false)
@@ -31,21 +31,13 @@ end
 
 def upload_testlet(tester_set, file_name)
   boundary = "---------------------------#{rand(10000000000000000000)}"
-  contents = File::open(file_name).read
-  data =  %[--#{boundary}] + "\r\n"
-  data << %[Content-Disposition: form-data; name="testlet[file]"; filename="#{file_name}"] + "\r\n"
-  data << %[Content-Type: multipart/form-data] + "\r\n\r\n"
-
-  data << contents
-  data << %[\r\n--#{boundary}--\r\n]
-
-  header = {
-    'Content-Length' => data.length.to_s,
-    'Content-Type' => "multipart/form-data; boundary=#{boundary}"
-  }
-
-  Net::HTTP.start(tester_set[:ip_address], 3000) do |http|
-    http.post('/testlets', data, header)
+  client = HTTPClient.new
+  File.open(file_name) do |io|
+    data = {"testlet[file]" => io}
+    client.post_content("http://#{tester_set[:ip_address]}:3000/testlets",
+      data, {
+        "Content-Type" => "multipart/form-data; boundary=#{boundary}",
+      })
   end
 end
 
