@@ -5,12 +5,13 @@ FactoryGirl.define do
   sequence :virtual_port_number, 2
 
   trait :internal_network_host do
+    tester_set_name 'local'
     netmask '255.255.255.0'
     gateway '10.10.10.254'
     virtual_port_number
   end
 
-  factory :git_host, class: NetTester::Netns do
+  factory :git_host, class: TestNode do
     name 'git_host'
     internal_network_host
     ip_address '10.10.10.1'
@@ -19,7 +20,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :test_host, class: NetTester::Netns do
+  factory :test_host, class: TestNode do
     name 'test_host'
     internal_network_host
     ip_address '10.10.10.2'
@@ -27,7 +28,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :user_pc, class: NetTester::Netns do
+  factory :user_pc, class: TestNode do
     name 'user_pc'
     internal_network_host
     ip_address '10.10.10.4'
@@ -36,12 +37,13 @@ FactoryGirl.define do
   end
 
   trait :dmz_network do
+    tester_set_name 'local'
     netmask '255.255.255.0'
     gateway '10.10.0.1'
     virtual_port_number
   end
 
-  factory :dmz_host, class: NetTester::Netns do
+  factory :dmz_host, class: TestNode do
     name 'dmz_host'
     dmz_network
     ip_address '10.10.0.100'
@@ -50,7 +52,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :dns_host, class: NetTester::Netns do
+  factory :dns_host, class: TestNode do
     name 'dns_host'
     dmz_network
     ip_address '10.10.0.10'
@@ -58,7 +60,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :vpn_host, class: NetTester::Netns do
+  factory :vpn_host, class: TestNode do
     name 'vpn_host'
     dmz_network
     ip_address '10.10.0.11'
@@ -67,7 +69,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :vpn_address_pool, class: NetTester::Netns do
+  factory :vpn_address_pool, class: TestNode do
     name 'vpn_addrpool'
     dmz_network
     ip_address '10.10.0.130'
@@ -77,12 +79,13 @@ FactoryGirl.define do
   end
 
   trait :internet_network do
+    tester_set_name 'local'
     netmask '255.255.255.0'
     gateway '198.51.100.254'
     virtual_port_number
   end
 
-  factory :internet_pc, class: NetTester::Netns do
+  factory :internet_pc, class: TestNode do
     name 'internet_pc'
     internet_network
     ip_address '198.51.100.1'
@@ -90,7 +93,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :internet_dns_host, class: NetTester::Netns do
+  factory :internet_dns_host, class: TestNode do
     name 'internet_dns'
     internet_network
     ip_address '198.51.100.2'
@@ -98,7 +101,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :internet_host, class: NetTester::Netns do
+  factory :internet_host, class: TestNode do
     name 'internet_svr'
     internet_network
     ip_address '198.51.100.3'
@@ -106,7 +109,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :internet_ntp_host, class: NetTester::Netns do
+  factory :internet_ntp_host, class: TestNode do
     name 'internet_ntp'
     internet_network
     ip_address '198.51.100.4'
@@ -114,7 +117,7 @@ FactoryGirl.define do
     mac_address {Faker::Internet.mac_address('00')}
   end
 
-  factory :tajimax_pc, class: NetTester::Netns do
+  factory :tajimax_pc, class: TestNode do
     name 'tajimax_pc'
     internet_network
     ip_address '198.51.100.94'

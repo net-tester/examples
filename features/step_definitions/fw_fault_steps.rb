@@ -2,31 +2,23 @@
 require 'expectacle'
 
 When(/^FW1 - L2SW1 間リンク障害発生$/) do
-  cd('.') do
-    make_port_down(14)
-    make_port_down(15)
-  end
+  make_port_down(14)
+  make_port_down(15)
 end
 
 When(/^FW1 - L2SW1 間リンク障害回復$/) do
-  cd('.') do
-    make_port_up(14)
-    make_port_up(15)
-  end
+  make_port_up(14)
+  make_port_up(15)
 end
 
 When(/^FW1 - L2SWEX 間リンク障害発生$/) do
-  cd('.') do
-    make_port_down(12)
-    make_port_down(13)
-  end
+  make_port_down(12)
+  make_port_down(13)
 end
 
 When(/^FW1 - L2SWEX 間リンク障害回復$/) do
-  cd('.') do
-    make_port_up(12)
-    make_port_up(13)
-  end
+  make_port_up(12)
+  make_port_up(13)
 end
 
 When(/^(\d+) 秒待つ$/) do |seconds|

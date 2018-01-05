@@ -1,51 +1,9 @@
 GIT
-  remote: git://github.com/net-tester/net-tester.git
-  revision: 564c0efdce412a69abcce8b76d9ff59836760895
-  branch: develop
-  specs:
-    net_tester (0.2.0)
-      faker (~> 1.6, >= 1.6)
-      gli (= 2.13.4)
-      pio (~> 0.30.0)
-
-GIT
   remote: git://github.com/stereocat/expectacle.git
   revision: 43c0eec710a70fcb11383f66c9970409c7506bc1
   branch: develop
   specs:
     expectacle (0.0.3)
-
-GIT
-  remote: git://github.com/trema/phut.git
-  revision: 4a7502f8de2d06356b5309dbf9da56b653c69480
-  branch: develop
-  specs:
-    phut (0.7.7)
-      activesupport (~> 4.2.6)
-      gli (~> 2.13.4)
-      pio (~> 0.30.0)
-      pry (~> 0.10.3)
-
-GIT
-  remote: git://github.com/trema/pio.git
-  revision: e29c289d9abfdeeb64eeb6ea0223b2a96252719e
-  branch: develop
-  specs:
-    pio (0.30.0)
-      activesupport (~> 4.2, >= 4.2.4)
-      bindata (~> 2.1.0)
-      bundler (>= 1.11.2, < 2.0)
-
-GIT
-  remote: git://github.com/trema/trema.git
-  revision: 03482228e72843bd59b6aa15e25b8ecc35c2e4f4
-  branch: develop
-  specs:
-    trema (0.10.1)
-      bundler (>= 1.11.2, < 2.0)
-      gli (~> 2.13.4)
-      phut (~> 0.7.7)
-      pio (~> 0.30.0)
 
 GEM
   remote: https://rubygems.org/
@@ -64,11 +22,9 @@ GEM
       rspec-expectations (>= 2.99)
       thor (~> 0.19)
     ast (2.2.0)
-    bindata (2.1.0)
     builder (3.2.2)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    coderay (1.1.1)
     contracts (0.14.0)
     cucumber (2.4.0)
       builder (>= 2.1.2)
@@ -84,24 +40,19 @@ GEM
     diff-lcs (1.2.5)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
-    faker (1.6.6)
+    faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.14)
     gherkin (4.0.0)
-    gli (2.13.4)
+    httpclient (2.8.3)
     i18n (0.7.0)
     json (1.8.3)
-    method_source (0.8.2)
     minitest (5.9.0)
     multi_json (1.12.1)
     multi_test (0.1.2)
     parser (2.3.1.0)
       ast (~> 2.2)
     powerpack (0.1.1)
-    pry (0.10.4)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
     rainbow (2.1.0)
     rake (11.2.2)
     rspec-expectations (3.5.0)
@@ -115,7 +66,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    slop (3.6.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
@@ -130,12 +80,10 @@ DEPENDENCIES
   cucumber
   expectacle!
   factory_girl
-  net_tester!
-  phut!
-  pio!
+  faker
+  httpclient
   rake
   rubocop
-  trema!
 
 BUNDLED WITH
-   1.12.5
+   1.14.3
